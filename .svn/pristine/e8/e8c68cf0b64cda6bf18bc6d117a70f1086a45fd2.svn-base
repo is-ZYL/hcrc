@@ -1,0 +1,138 @@
+package com.action;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.entity.Users;
+import com.service.IUserPositionService;
+
+@Controller
+@RequestMapping("user_po")
+@SessionAttributes("user")
+public class UserPositionAction {
+
+	
+	private IUserPositionService service;
+	
+	@Autowired
+	public void setService(IUserPositionService service) {
+		this.service = service;
+	}
+
+	
+	/*用户注册*/
+	@RequestMapping("user_regDo")
+	public String user_regDo(Users user,HttpServletRequest request,String val) throws Exception {
+		String VAL = (String) request.getSession().getAttribute("comment");
+		if(VAL.equalsIgnoreCase(val)) {
+			boolean flag = service.userRegDo(user); 
+			if(flag) {
+				return"redirect:user_positionMain";
+			}
+		}
+		return"redirect:user_reg";
+	}
+	
+	
+	/*用户进入首页（未登录）*/
+	@RequestMapping("{uri}_positionMain")
+	public String positionMain(@PathVariable("uri") String uri) {
+		return uri+"/positionMain";
+	}
+	
+	
+	
+	/*用户登录*/
+	@RequestMapping("user_login")
+	@ResponseBody
+	public Users loginDo(Users user,ModelMap map) throws Exception {
+		Users users = service.userLoginDo(user);
+		map.addAttribute("user", users);
+		return users;
+	}
+	
+	
+
+	
+	String str = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ0123456789";
+	@RequestMapping("img")
+	public String img(HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("image/jpeg");
+		BufferedImage img = new BufferedImage(80, 30, BufferedImage.TYPE_INT_RGB);
+		Graphics g = img.createGraphics();
+		// 给笔设置颜色
+		g.setColor(getRandomColor());
+		// 画一个相同尺寸的矩形 以便填充字符串
+		g.fillRect(0, 0, 80, 30);
+		// 设置字体样式
+		g.setFont(new Font("Georgia", Font.ITALIC, 18));
+		// 更换笔的颜色
+		g.setColor(getRandomColor());
+
+		String randomText = getRandomText(4);
+		request.getSession().setAttribute("comment", randomText);
+		int r1 = (int) (Math.random() * 127);
+		int g1 = (int) (Math.random() * 127);
+		int b1 = (int) (Math.random() * 127);
+		g.setColor(new Color(r1, g1, b1));
+		// 给画笔设置字体样式
+		g.setFont(new Font("微软雅黑", Font.ITALIC, 25));
+		// 在矩形上面写字符串
+		g.drawString(randomText, (int) (0 + Math.random()), 30);
+		// 干扰物
+		for (int i = 0; i < 5; i++) {
+			g.setColor(getRandomColor());
+			int x = (int) (Math.random() * 60);
+			int y = (int) (Math.random() * 40);
+			g.drawString("*", x, y);
+		}
+		g.dispose();
+		try {
+			ImageIO.write(img, "jpg", response.getOutputStream());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 返回随机的colors对象 以便产生随机的背景图颜色
+	 * 
+	 * @return
+	 */
+	public Color getRandomColor() {
+		int r = (int) (Math.random() * 127 + 127);
+		int g = (int) (Math.random() * 127 + 127);
+		int b = (int) (Math.random() * 127 + 127);
+		return new Color(r, g, b);
+	}
+
+	/**
+	 * 返回指定长度的随机字符串
+	 * 
+	 * @param len
+	 * @return
+	 */
+	public String getRandomText(int len) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < len; i++) {
+			stringBuilder.append(str.charAt((int) (Math.random() * str.length())));
+		}
+		return stringBuilder.toString();
+	}
+}

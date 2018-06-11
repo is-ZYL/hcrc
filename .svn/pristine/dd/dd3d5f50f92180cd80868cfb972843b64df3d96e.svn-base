@@ -1,0 +1,33 @@
+package com.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.entity.Headhunting;
+import com.entity.Users;
+
+@Repository
+public interface IHeadhuntingDao {
+
+	public Long insertHeadhunter(Headhunting headhunting);
+
+	public Headhunting selectHeadhunter(Headhunting headhunting);
+
+	public Headhunting selectHeadhunterByUsername(String h_username);
+
+	public int selectUserCountByDim(String keyCode);
+
+	public List<Users> selectUserByDim(Map<String,Object> map);
+
+	public int selectUserCountAll();
+
+	public List<Users> selectUserAll(Map<String, Object> map);
+
+	public int selecttopTalentsCount();
+
+	public List<Users> selecttopTalents(Map<String, Integer> map);
+
+
+}

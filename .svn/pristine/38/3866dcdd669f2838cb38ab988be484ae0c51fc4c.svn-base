@@ -1,0 +1,53 @@
+package com.action;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.entity.Headhunting;
+import com.service.IHeadhuntingService;
+
+
+@Controller
+@RequestMapping("headhunter" )
+@SessionAttributes({"LOG_HEADHUNTING"})
+public class HeadhunterAction {
+	@Autowired
+	private IHeadhuntingService headhuntingService;
+	
+	/**
+	 * 访问猎头主界面
+	 * @param uri
+	 * @return
+	 */
+	@RequestMapping("{uri}_headhunterMain" )
+	private String main(@PathVariable("uri") String uri) {
+		return uri+"/headhunterMain";
+	}
+	/**
+	 * 猎头执行注册
+	 * @param uri
+	 * @return
+	 */
+	@RequestMapping("{uri}_regDo" )
+	private String headhunterRegDo(@PathVariable("uri") String uri,Headhunting Headhunting) {
+		headhuntingService.insertHeadhunter(Headhunting);
+		return "redirect:"+uri+"_headhunterMain";
+	}
+	/**
+	 * 猎头执行登录
+	 * @param headhunting
+	 * @return
+	 */
+	@RequestMapping("headhunter_logDo")
+	@ResponseBody
+	public Headhunting selectHeadhuntingLog(Headhunting headhunting,ModelMap map) {
+		Headhunting headhunter =headhuntingService.selectHeadhunter(headhunting);
+		map.addAttribute("LOG_HEADHUNTING", headhunter);
+		return headhunter;
+	}
+}

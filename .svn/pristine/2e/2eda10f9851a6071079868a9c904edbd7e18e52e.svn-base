@@ -1,0 +1,243 @@
+.dingdan-conter{
+    width: 100%;
+    height: 1250px;
+    background-color: #F2F2F2;
+}
+.conter-left{
+    width: 210px;
+    height: 240px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    float: left;
+}
+.conter-right{
+    position: relative;
+    width: 910px;
+    height: 1200px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    float: right;
+}
+.conter-left p{
+    margin-top:30px;
+    margin-left: 30px;
+}
+.conter-left span{
+    margin-left: 30px;
+    font-size: 18px;
+}
+.conter-left p:nth-child(3)span{
+    color: #E84626;
+}/*编辑之后*/
+.edit-one{
+    width: 910px;
+    height: 57px;
+    background-color: #F2F2F2;
+}
+.one-editors{
+    width: 90px;
+    height: 57px;
+    margin-left: 30px;
+}
+.one-editors span{
+    font-size: 20px;
+    line-height: 57px;
+    text-align: center;
+}
+.position-name{
+    width: 910px;
+    height: 395px;
+}
+.position-center{
+    width: 845px;
+    height: 380px;
+    border-bottom: 1px solid #cccccc;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.position-name-left{
+    width: 110px;
+    height: 380px;
+    float: left;
+}
+.position-name-right{
+    width: 735px;
+    height: 380px;
+
+    float: right;
+}
+.position-name-right p{
+    margin-top: 15px;
+}
+.position-name-right p input{
+    width: 250px;
+    height: 20px;
+    border: 1px solid #cccccc;
+}
+.position-name-right p:nth-child(6) input{
+    width: 50px;
+    height: 20px;
+}
+.position-name-right p:nth-child(7) select,
+.position-name-right p:nth-child(8) select,
+.position-name-right p:nth-child(9) select{
+    width: 100px;
+    height: 20px;
+    border: 1px solid #cccccc;
+}
+.position-name-right p:nth-child(10) input{
+    width: 100px;
+    height: 20px;
+}
+.position-name-left-keyword{
+    width: 110px;
+    height: 103px;
+}
+.position-name-left-keyword-down{
+    width: 110px;
+    height: 277px;
+}
+.position-name-left-keyword span{
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.position-name-left-keyword-down span{
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 16px;
+}
+.end-date{
+    width: 910px;
+    height: 205px;
+
+}
+.end-date-surround{
+    width: 845px;
+    height: 205px;
+    border-bottom: 1px solid #cccccc;
+    margin-left: 30px;
+}
+.end-date-surround-release-city{
+    width: 110px;
+    height: 205px;
+    float: left;
+}
+.end-date-surround-region{
+    width: 735px;
+    height: 205px;
+    float: right;
+}
+.end-date-surround-region p{
+    margin-top: 17px;
+}
+.end-date-surround-region p input{
+    width: 100px;
+    height: 20px;
+    border: 1px solid #cccccc;
+}
+.end-date-surround-region p select{
+    width: 100px;
+    height: 22px;
+    border: 1px solid #cccccc;
+}
+.release-city-top{
+    width: 110px;
+    height: 172px;
+
+}
+.release-city-down{
+    width: 110px;
+    height: 33px;
+}
+.release-city-top p{
+    display: inline-block;
+    margin-top: 17px;
+    font-size: 17px;
+}
+.release-city-down p{
+    font-size: 17px;
+}
+.post-advantage{
+    width: 910px;
+    height: 494px;
+}
+.post-advantage-encircle{
+    width: 845px;
+    height: 454px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.post-advantage-encircle-left{
+    width: 110px;
+    height: 454px;
+    float: left;
+}
+.post-advantage-encircle-right{
+    width: 735px;
+    height: 454px;
+    float: right;
+}
+.post-advantage-encircle-right-text{
+    width: 735px;
+    height: 70px;
+}
+.post-advantage-encircle-right-text p{
+    display: inline-block;
+    margin-top: 8px;
+}
+.post-advantage-encircle-right-text p:nth-child(1) input{
+    width: 300px;
+    height: 20px;
+    border: 1px solid #cccccc;
+}
+.post-advantage-encircle-right-textarea,
+.post-advantage-encircle-right-textare2{
+    width: 735px;
+    height: 135px;
+}
+.post-advantage-encircle-right-textarea p,
+.post-advantage-encircle-right-textare2{
+    display: block;
+    margin-top: 10px;
+}
+.post-advantage-encircle-right-textarea p:nth-child(2),
+.post-advantage-encircle-right-textare2 p:nth-child(2){
+    float: right;
+    margin-right: 250px;
+}
+.post-advantage-encircle-right-textarea p:nth-child(1) input,
+.post-advantage-encircle-right-textare2 p:nth-child(1) input{
+    width: 500px;
+    height: 100px;
+    border: 1px solid #cccccc;
+}
+.post-advantage-encircle-right-button{
+    width: 735px;
+    height: 94px;
+}
+.post-advantage-encircle-right-button p{
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.post-advantage-encircle-right-button p input{
+    width: 90px;
+    height: 40px;
+    font-size: 15px;
+}
+.post-advantage-encircle-left p{
+    display: inline-block;
+}
+.post-advantage-encircle-left p:nth-child(1){
+    font-size: 17px;
+    margin-top: 8px;
+}
+.post-advantage-encircle-left p:nth-child(2){
+    margin-top: 50px;
+    font-size: 17px;
+}
+.post-advantage-encircle-left p:nth-child(3){
+    margin-top: 130px;
+    font-size: 17px;
+}

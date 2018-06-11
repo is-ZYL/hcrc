@@ -1,0 +1,341 @@
+/*
+<input name="pwd" type="password" id="pwd"
+onpaste="return false" 不允许复制
+oncontextmenu="return false" 不允许
+oncopy="return false" 不允许粘贴
+oncut="return false"/>不允许剪切
+
+使input双击时不显示历史记录：
+<input type="text" name="textfield" autocomplete="off">
+*/
+
+
+
+.middle-content div {
+    border-radius: 10px;
+}
+
+
+
+.middle-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.middle-content .content {
+    width: 1024px;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.middle-content .content .content-left {
+    width: 200px;
+    height: 100%;
+    float: left;
+    background-color: #ffffff;
+}
+
+.content-left ul li {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.content-left .aa li:nth-child(-n+9):hover {
+    background-color: #c5c5c5;
+    color: #C72E28;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+.content-left ul li i {
+    margin-top: 17px;
+    margin-left: -15px;
+}
+
+.content-left ul li span {
+    padding-left: 10px;
+}
+
+.n-icon {
+    display: inline-block;
+    width: 25px;
+    height: 16px;
+    background: url(../img/nav-icon.png) no-repeat;
+}
+
+.messageNum {
+    width: 30px;
+    height: 15px;
+    font-size: 5px;
+    border: #05ddca;
+    border-radius: 10px;
+    background-color: #E84626;
+    text-align: center;
+    margin-left: 5px;
+    color: white;
+    padding: 0px;
+    top: 270px;
+    left: 147px;
+    position: absolute;
+}
+.one {
+    background-position: 0px -412px;
+}
+
+/*
+.content-left ul li:first-child:hover{
+    background-position: -37px -412px;
+}*/
+.two {
+    background-position: 0px -76px;
+}
+
+/*
+.content-left ul li:nth-child(2):hover{
+    background-position: -34px -76px;
+}
+*/
+
+.three {
+    background-position: 0px -189px;
+
+}
+
+/*
+.content-left ul li:nth-child(3):hover{
+    background-position: -34px -189px;
+}*/
+.four {
+    background-position: 0px -339px
+
+}
+
+/*
+.content-left ul li:nth-child(4):hover{
+    background-position: -34px -375px;
+}*/
+.five {
+    background-position: 0px -375px;
+
+}
+
+/*
+.content-left ul li:nth-child(5):hover{
+    background-position: -34px -228px;
+}*/
+.six {
+    background-position: 0px -228px;
+
+}
+
+/*
+.content-left ul li:nth-child(6):hover{
+    background-position: -34px -302px;
+}*/
+.seven {
+    background-position: 0px -302px;
+
+}
+
+/*
+.content-left ul li:nth-child(7):hover{
+    background-position: -34px -151px;
+}*/
+
+.eight{
+    background-position: 0px -151px;
+}
+
+
+.jinengtisheng {
+    margin-top: 20px;
+    background-color: #FFFFFF;
+}
+
+.jinengtisheng ul li:hover {
+    cursor: pointer;
+    color: #C72E28;
+}
+
+.jinengtisheng ul li:nth-child(n+2) {
+    margin: auto;
+    width: 60%;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: left;
+    background-color: #FFFFFF;
+}
+
+.jinengtisheng ul {
+    width: 100%;
+    height: 100%;
+}
+
+.jinengtisheng ul li:first-child {
+    margin: auto;
+    text-align: left;
+    vertical-align: middle;
+    width: 60%;
+    height: 50px;
+    border-bottom: 1px solid #797979;
+    font-size: 18px;
+    line-height: 50px;
+    background-color: #FFFFFF;
+}
+
+.right {
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    background-position: 0px 0px;
+    background-image: url(../img/orderzhiping_right.jpg);
+    left: 170px;
+    background-color: #FFFFFF;
+}
+
+.right:hover {
+    cursor: pointer;
+}
+
+.content-right {
+    width: 80%;
+    height: 100%;
+    float: right;
+    background-color: #FFFFFF;
+}
+
+.content-right-head {
+    width: 100%;
+    height: 50px;
+    background-color: #C5C5C5;
+    border-radius: 10px;
+}
+
+.countSafe {
+    width: 100%;
+    height: 45px;
+    border-bottom: 3px solid #333639;
+    color: #333639;
+}
+
+.content-right-head ul li {
+    float: left;
+    text-align: left;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bolder; /*字体加粗*/
+    margin-left: 30px;
+    color: #878a8d;
+}
+
+.content-right-head ul li:hover {
+    cursor: pointer;
+}
+
+.content-right-content {
+    width: 100%;
+    height: 100%;
+}
+
+.content-right-content div:first-child {
+    width: 50%;
+    height: 300px;
+    margin: 50px auto;
+    background-color: white;
+}
+
+.content-right-content div:first-child ul {
+    width: 100%;
+    height: 100%;
+}
+
+.content-right-content div:first-child ul li {
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    padding-top: 5px;
+    margin: auto;
+    text-align: center;
+}
+
+.content-right-content div:first-child ul li input {
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: #E84626;
+    width: 60%;
+    font-weight: initial;
+    height: 35px;
+    border: 1px solid #DDDDDD;
+    text-indent: 10px;
+    background-color: #F1F1F1;
+}
+
+
+
+.content-right-content div:first-child ul li input:nth-child(4){
+    background-color: #C5C5C5;
+    width: 25%;
+    float: left;
+    margin-left: 109px;
+}
+
+.content-right-content div:first-child ul li i {
+    position: absolute;
+    cursor: pointer;
+    width: 16px;
+    height: 20px;
+    display: inline-block;
+    background: url(../img/login_icon.png) no-repeat;
+    vertical-align: middle;
+    margin-top: -10px;
+    background-position: 0px -49px;
+    right: 265px;
+}
+
+.password1 {
+    top: 135px;
+}
+
+.password2 {
+    top: 190px;
+}
+
+.password3 {
+    top: 244px;
+}
+
+.pa3 {
+    margin-right: 15px;
+}
+
+.paButton {
+    margin-left: 53px;
+}
+
+.paButton:hover {
+    cursor: pointer;
+}
+
+.b {
+    display: none;
+}
+
+.b div:first-child ul li:first-child input {
+    margin-right: 16px;
+}
+
+.bb{
+    background-color: #c5c5c5;
+    color: #C72E28;
+    border-radius: 10px;
+}

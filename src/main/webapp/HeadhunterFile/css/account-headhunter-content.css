@@ -1,0 +1,30 @@
+.main form p:nth-child(1){
+    margin-top: 20px;
+}
+.main form p{
+    margin-top: 10px;
+}
+.main form p input{
+    width: 200px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}
+.main form p:nth-child(4) span{
+    display: block;
+    color: #ccc;
+}
+.main form>input{
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    background-color: #E84626;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#telCode{
+    width: 100px;
+}
+.main p input.telCodeB{
+    width: 87px;
+}

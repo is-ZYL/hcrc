@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	<!-- log4j的配置 -->
+	 <welcome-file-list>  
+        <welcome-file>index.html</welcome-file>  
+        <welcome-file>index.htm</welcome-file>  
+        <welcome-file>index.jsp</welcome-file>  
+        <welcome-file>default.html</welcome-file>  
+        <welcome-file>default.htm</welcome-file>  
+        <welcome-file>default.jsp</welcome-file>  
+    </welcome-file-list> 
+  <context-param>
+		<!-- 日志配置文件路径 -->
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<!-- 日志页面的刷新间隔 -->
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>6000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
+	<!-- 注入spring配置文件  -->
+  	<context-param>
+  		<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring.xml</param-value>
+  	</context-param>
+  		<!-- spring容器 -->
+  	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- spring防止内存溢出 -->
+  <listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	
+  <!-- springmvc分发器 -->
+  <servlet>
+  	<servlet-name>hcrc</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:springmvc.xml</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hcrc</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <!--解决中文乱码问题  -->
+  <filter>
+     <filter-name>CharacterEncoding</filter-name>
+     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+     <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+     </init-param>
+  </filter>
+  <filter-mapping>
+     <filter-name>CharacterEncoding</filter-name>
+     <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 404页面 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/Error/404.jsp</location>
+  </error-page>
+</web-app>

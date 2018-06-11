@@ -1,0 +1,14 @@
+package com.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.entity.Headhunting;
+
+@Repository
+public interface IHeadhuntingDao {
+
+	public Long insertHeadhunter(Headhunting headhunting);
+
+	public Headhunting selectHeadhunter(Headhunting headhunting);
+
+}

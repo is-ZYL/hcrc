@@ -1,0 +1,112 @@
+package com.entity;
+
+public class Headhunting {
+	/**
+	 * 猎头账号
+	 */
+	private int h_id;
+	
+	private String h_username;
+	
+	private String h_password;
+	
+	private String h_contacts;
+	
+	private String h_identification;
+	
+	private String h_companyFullName;
+	
+	private String h_license;
+	
+	private HeadhuntingData headhuntingData;
+	
+	private String h_logo;
+	
+	public String getH_logo() {
+		return h_logo;
+	}
+
+	public void setH_logo(String h_logo) {
+		this.h_logo = h_logo;
+	}
+
+	public HeadhuntingData getHeadhuntingData() {
+		return headhuntingData;
+	}
+
+	public void setHeadhuntingData(HeadhuntingData headhuntingData) {
+		this.headhuntingData = headhuntingData;
+	}
+
+	public int getH_id() {
+		return h_id;
+	}
+
+	public void setH_id(int h_id) {
+		this.h_id = h_id;
+	}
+
+	public String getH_username() {
+		return h_username;
+	}
+
+	public void setH_username(String h_username) {
+		this.h_username = h_username;
+	}
+
+	public String getH_password() {
+		return h_password;
+	}
+
+	public void setH_password(String h_password) {
+		this.h_password = h_password;
+	}
+
+	public String getH_contacts() {
+		return h_contacts;
+	}
+
+	public void setH_contacts(String h_contacts) {
+		this.h_contacts = h_contacts;
+	}
+
+	public String getH_identification() {
+		return h_identification;
+	}
+
+	public void setH_identification(String h_identification) {
+		this.h_identification = h_identification;
+	}
+
+	public String getH_companyFullName() {
+		return h_companyFullName;
+	}
+
+	public void setH_companyFullName(String h_companyFullName) {
+		this.h_companyFullName = h_companyFullName;
+	}
+
+	public String getH_license() {
+		return h_license;
+	}
+
+	public void setH_license(String h_license) {
+		this.h_license = h_license;
+	}
+
+	@Override
+	public String toString() {
+		return "Headhunting [h_id=" + h_id + ", h_username=" + h_username + ", h_password=" + h_password
+				+ ", h_contacts=" + h_contacts + ", h_identification=" + h_identification + ", h_companyFullName="
+				+ h_companyFullName + ", h_license=" + h_license + ", headhuntingData=" + headhuntingData + ", h_logo="
+				+ h_logo + "]";
+	}
+
+	
+
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,253 @@
+package com.action;
+
+import java.awt.Font;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.entity.Users;
+import com.service.IUserPositionService;
+
+import val.VerificationCode;
+
+@Controller
+@RequestMapping("user_po")
+public class UserPositionAction {
+
+	private IUserPositionService service;
+
+	@Autowired
+	public void setService(IUserPositionService service) {
+		this.service = service;
+	}
+
+	/* 用户注册 */
+	@RequestMapping("user_regDo")
+	public String user_regDo(Users user, HttpServletRequest request, String val) throws Exception {
+		String VAL = (String) request.getSession().getAttribute("comment");
+		if (VAL.equalsIgnoreCase(val)) {
+			boolean flag = service.userRegDo(user);
+			if (flag) {
+				return "redirect:user_positionMain.html";
+			}
+		}
+		return "redirect:/user_reg";
+	}
+
+	/**
+	 * 检查用户名是否合格 1表示可以注册，0表示该用户名已经被注册
+	 * @param u_phone
+	 * @return
+	 */
+	@RequestMapping("user_checkUPhone")
+	@ResponseBody
+	public Integer checkUPhone(String u_phone) {
+		String selectUPhone = service.selectUPhone(u_phone);
+		if (selectUPhone == null) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	/**
+	 * 用户进入首页（未登录）
+	 * @param uri
+	 * @return
+	 */
+	@RequestMapping("{uri}_positionMain.html")
+	public String positionMain(@PathVariable("uri") String uri) {
+		return uri + "/positionMain";
+	}
+
+	/**
+	 * 用户进入修改密码页面
+	 * @param uri
+	 * @return
+	 */
+	@RequestMapping("{uri}_accountSecurity")
+	public String accountSecurity(@PathVariable("uri") String uri) {
+		return uri + "/accountSecurity";
+	}
+
+	/**
+	 * 用户个人中心
+	 * @return
+	 */
+	@RequestMapping("{uri}_center")
+	public String userCenter(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/userCenter";
+	}
+	
+	
+	/**
+	 * 用户简历中心
+	 * @return
+	 */
+	@RequestMapping("{uri}_myResume")
+	public String myResume(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/myResume";
+	}
+	
+	
+	/**
+	 * 用户查看简历
+	 * @return
+	 */
+	@RequestMapping("{uri}_checkResume")
+	public String checkResume(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/checkResume";
+	}
+	
+	
+	/**
+	 * 用户查看简历
+	 * @return
+	 */
+	@RequestMapping("{uri}_createResume")
+	public String createResume(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/createResume";
+	}
+	
+
+	/**
+	 * 用户职位投递
+	 * @return
+	 */
+	@RequestMapping("{uri}_postDelivery")
+	public String postDelivery(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/postDelivery";
+	}
+
+	/**
+	 * 用户职位收藏
+	 * 
+	 * @return
+	 */
+	@RequestMapping("{uri}_jobCollection")
+	public String JobCollection(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/jobCollection";
+	}
+	
+	
+	/**
+	 * 用户企业屏蔽
+	 * 
+	 * @return
+	 */
+	@RequestMapping("{uri}_shieldedEnterprise")
+	public String shieldedEnterprise(HttpServletRequest request, @PathVariable("uri") String uri) {
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "no";
+		}
+		return uri + "/shieldedEnterprise";
+	}
+
+	/**
+	 * 用户登录
+	 * @param user
+	 * @param map
+	 * @param IsCheckd
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("user_login")
+	@ResponseBody
+	public Users loginDo(Users user, HttpServletRequest request, boolean IsCheckd, HttpServletResponse response)
+			throws Exception {
+		Users users = service.userLoginDo(user);
+		request.getSession().setAttribute("user", users);
+		if (users != null) {
+			return users;
+		}
+		return null;
+	}
+
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	@RequestMapping("signOut")
+	@ResponseBody
+	public String SignOut(HttpServletRequest request) {
+		request.getSession().removeAttribute("user");
+		return "ok";
+	}
+
+	/**
+	 * 用户更改密码
+	 * @return
+	 */
+	@RequestMapping("updatePassword")
+	@ResponseBody
+	public String updatePassword(HttpServletRequest request, String u_password_OLD, String u_password) {
+		System.out.println("原密码===" + u_password_OLD);
+		System.out.println("新密码===" + u_password);
+		Users user = (Users) request.getSession().getAttribute("user");
+		// 说明未登录 返回首页登录
+		if (user == null) {
+			return "null";
+		}
+		user.setU_password(u_password_OLD);
+		System.out.println("user=====" + user);
+		if (service.selectUPassword(user) == null) {
+			return "no";
+		} else {
+			user.setU_password(u_password);
+			boolean isPass = service.userUpdatePass(user);
+			return isPass == true ? "ok" : "No";
+		}
+	}
+
+	/**
+	 * 验证码
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("img")
+	public String img(HttpServletRequest request, HttpServletResponse response) {
+		VerificationCode code = new VerificationCode(request, response);
+		return code.val(80, 30, new Font("Georgia", Font.ITALIC, 18), new Font("微软雅黑", Font.ITALIC, 25));
+	}
+
+}

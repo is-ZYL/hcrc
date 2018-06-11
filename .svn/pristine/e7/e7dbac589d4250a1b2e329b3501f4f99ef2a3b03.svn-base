@@ -1,0 +1,53 @@
+package com.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dao.IUserPositionDao;
+import com.entity.Users;
+import com.service.IUserPositionService;
+
+@Service
+public class UserPositionServiceImpl implements IUserPositionService {
+
+	@Autowired
+	private IUserPositionDao userPositionDao;
+
+
+	@Override
+	@Transactional
+	public boolean userRegDo(Users user) throws Exception {
+		return userPositionDao.userRegDo(user) > 0;
+	}
+	
+	
+	@Override
+	@Transactional
+	public Users userLoginDo(Users user) throws Exception {
+		return userPositionDao.userLoginDo(user);
+	}
+
+
+	@Override
+	@Transactional
+	public String selectUPhone(String u_phone) {
+		return userPositionDao.selectUPhone(u_phone);
+	}
+
+
+	@Override
+	@Transactional
+	public String selectUPassword(Users user) {
+		return userPositionDao.selectUPassword(user);
+	}
+
+
+	@Override
+	@Transactional
+	public boolean userUpdatePass(Users user) {
+		return userPositionDao.updateUPassword(user)>0;
+	}
+
+	
+}

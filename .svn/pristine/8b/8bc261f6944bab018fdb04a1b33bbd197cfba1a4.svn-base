@@ -1,0 +1,15 @@
+package com.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.entity.Users;
+
+@Repository
+public interface IUserPositionDao {
+	
+	/*用户注册*/
+	public Long userRegDo(Users user);
+	/*用户登录*/
+	public Users userLoginDo(Users user);
+	
+}

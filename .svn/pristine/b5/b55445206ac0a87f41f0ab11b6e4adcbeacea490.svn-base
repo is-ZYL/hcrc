@@ -1,0 +1,7 @@
+$(function () {
+    $(".content-left ul li:first-child").focus(function () {
+        $(".one").css("background-position"," 0px -412px")
+    });
+});
+
+

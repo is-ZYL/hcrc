@@ -1,0 +1,19 @@
+package com.hcrc;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class CommonalityAction {
+	/**
+	 * ×¢²á½çÃæ
+	 * @param uri 
+	 * @return
+	 */
+	@RequestMapping("{uri}_reg")
+	public String reg(@PathVariable("uri") String uri) {
+		return uri+"/reg";
+	}
+	
+}

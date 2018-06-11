@@ -1,0 +1,64 @@
+package com.action;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.entity.Users;
+import com.service.IUserPositionService;
+
+@Controller
+@RequestMapping("user_po")
+@SessionAttributes("user")
+public class UserPositionAction {
+
+	
+	private IUserPositionService service;
+	
+	@Autowired
+	public void setService(IUserPositionService service) {
+		this.service = service;
+	}
+
+	
+	/*用户注册*/
+	@RequestMapping("user_regDo")
+	public String user_regDo(Users user,HttpServletRequest request) throws Exception {
+		boolean flag = service.userRegDo(user); 
+		if(flag) {
+			return"redirect:user_positionMain";
+		}
+		return"redirect:"+request.getContextPath()+"/user_reg";
+	}
+	
+	
+	/*用户进入首页（未登录）*/
+	@RequestMapping("{uri}_positionMain")
+	public String positionMain(@PathVariable("uri") String uri) {
+		return uri+"/positionMain";
+	}
+	
+	
+	/*用户进入首页（已登录）*/
+	@RequestMapping("{uri}_positionUserMain")
+	public String positionUserMain(@PathVariable("uri") String uri) {
+		return uri+"/positionUserMain";
+	}
+	
+	
+	/*用户登录*/
+	@RequestMapping("user_login")
+	@ResponseBody
+	public Users loginDo(Users user,ModelMap map) throws Exception {
+		Users users = service.userLoginDo(user);
+		map.addAttribute("user", users);
+		return users;
+	}
+	
+}

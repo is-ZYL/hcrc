@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IHeadhuntingDao">
+	<insert id="insertHeadhunter" parameterType="Headhunting">
+		insert into headhunting values(0,#{h_username},md5(#{h_password}),#{h_contacts},#{h_identification},#{h_companyFullName},#{h_license}); 
+	</insert>
+	<select id="selectHeadhunter" parameterType="Headhunting" resultType="Headhunting">
+		select * from headhunting where h_username=#{h_username} and h_password=md5(#{h_password})
+	</select>
+</mapper>

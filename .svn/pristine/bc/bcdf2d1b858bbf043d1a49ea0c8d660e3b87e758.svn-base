@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IHeadhuntingDao">
+	<insert id="insertHeadhunter" parameterType="Headhunting">
+		insert into headhunting values(0,#{h_username},md5(#{h_password}),#{h_contacts},#{h_identification},#{h_companyFullName},#{h_license}); 
+	</insert>
+	
+	<select id="selectHeadhunter" parameterType="Headhunting" resultType="Headhunting">
+		select * from headhunting where h_username=#{h_username} and h_password=md5(#{h_password})
+	</select>
+	
+	<select id="selectHeadhunterByUsername" parameterType="java.lang.String" resultType="Headhunting">
+		select * from headhunting where h_username=#{h_username};
+	</select>
+	
+	<select id="selectUserCountByDim"  resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT count(*) FROM users LEFT JOIN resume ON users.u_id = resume.u_id LEFT JOIN job_experience ON job_experience.r_id = resume.r_id LEFT JOIN educational_experience on educational_experience.r_id =resume.r_id WHERE job_experience.je_job LIKE '%' #{keyCode} '%' OR resume.r_rname LIKE '%' #{keyCode} '%' OR resume.r_speciality LIKE '%' #{keyCode} '%'
+	</select>
+	<select id="selectUserCountAll"  resultType="java.lang.Integer">
+		SELECT count(*) FROM users LEFT JOIN resume ON users.u_id = resume.u_id LEFT JOIN job_experience ON job_experience.r_id = resume.r_id LEFT JOIN educational_experience on educational_experience.r_id =resume.r_id
+	</select>
+	
+	<select id="selectUserByDim" parameterType="java.util.Map" resultMap="users">
+		SELECT * FROM users LEFT JOIN resume ON users.u_id = resume.u_id LEFT JOIN job_experience ON job_experience.r_id = resume.r_id LEFT JOIN educational_experience on educational_experience.r_id =resume.r_id WHERE job_experience.je_job LIKE '%' #{keyCode} '%' OR resume.r_rname LIKE '%' #{keyCode} '%' OR resume.r_speciality LIKE '%' #{keyCode} '%' LIMIT ${from},${to}
+	</select>
+	<select id="selectUserAll" parameterType="java.util.Map" resultMap="users">
+		SELECT * FROM users LEFT JOIN resume ON users.u_id = resume.u_id LEFT JOIN job_experience ON job_experience.r_id = resume.r_id LEFT JOIN educational_experience on educational_experience.r_id =resume.r_id  LIMIT ${from},${to}
+	</select>
+	<resultMap type="Users" id="users">
+		<id column="u_id" property="u_id"/>
+		<result column="u_phone" property="u_phone"/>
+		<result column="u_header" property="u_header"/>
+		<collection property="resume" ofType="Resume">
+			<id column="r_id" property="r_id" />
+			<result column="r_rname" property="r_rname"/>
+			<result column="r_name" property="r_name"/>
+			<result column="r_sex" property="r_sex"/>
+			<result column="r_age" property="r_age"/>
+			<result column="r_address" property="r_address"/>
+			<result column="r_phone" property="r_phone"/>
+			<result column="r_experience" property="r_experience"/>
+			<result column="r_qq" property="r_qq"/>
+			<result column="r_weixin" property="r_weixin"/>
+			<result column="r_judgement" property="r_judgement"/>
+			<result column="r_speciality" property="r_speciality"/>
+			<result column="r_personalRoom" property="r_personalRoom"/>
+			<result column="r_softwareSkills" property="r_softwareSkills"/>
+			<result column="r_expressDelivery" property="r_expressDelivery"/>
+			<result column="r_sendtime" property="r_sendtime"/>
+			<result column="r_whoRead" property="r_whoRead"/>
+			<collection property="jobExperience" ofType="JobExperience">
+				<id column="je_id" property="je_id"/>
+				<result column="je_start" property="je_start"/>
+				<result column="je_end" property="je_end"/>
+				<result column="je_company" property="je_company"/>
+				<result column="je_job" property="je_job"/>
+				<result column="je_describe" property="je_describe"/>
+			</collection>
+			<collection property="educationalExperience" ofType="EducationalExperience">
+				<id column="ed_id" property="ed_id"/>
+				<result column="school_name" property="school_name"/>
+				<result column="start_time" property="start_time"/>
+				<result column="end_time" property="end_time"/>
+				<result column="system" property="system"/>
+				<result column="major" property="major"/>
+				<result column="education" property="education"/>
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="selecttopTalentsCount"  resultType="java.lang.Integer">
+		SELECT count(*) from users left join resume on users.u_id = resume.u_id where resume.r_experience >= 3
+	</select>
+	<select id="selecttopTalents" parameterType="java.util.Map" resultMap="topTalents">
+	SELECT * from users left join resume on users.u_id = resume.u_id where resume.r_experience >= 3 LIMIT ${from},${to} 
+	</select>
+	<resultMap type="Users" id="topTalents">
+		<id column="u_id" property="u_id"/>
+		<result column="u_phone" property="u_phone"/>
+		<result column="u_header" property="u_header"/>
+		<collection property="resume" ofType="Resume">
+			<id column="r_id" property="r_id" />
+			<result column="r_rname" property="r_rname"/>
+			<result column="r_name" property="r_name"/>
+			<result column="r_sex" property="r_sex"/>
+			<result column="r_age" property="r_age"/>
+			<result column="r_address" property="r_address"/>
+			<result column="r_phone" property="r_phone"/>
+			<result column="r_experience" property="r_experience"/>
+			<result column="r_qq" property="r_qq"/>
+			<result column="r_weixin" property="r_weixin"/>
+			<result column="r_judgement" property="r_judgement"/>
+			<result column="r_speciality" property="r_speciality"/>
+			<result column="r_personalRoom" property="r_personalRoom"/>
+			<result column="r_softwareSkills" property="r_softwareSkills"/>
+			<result column="r_expressDelivery" property="r_expressDelivery"/>
+			<result column="r_sendtime" property="r_sendtime"/>
+			<result column="r_whoRead" property="r_whoRead"/>
+			</collection>
+		</resultMap>
+</mapper>

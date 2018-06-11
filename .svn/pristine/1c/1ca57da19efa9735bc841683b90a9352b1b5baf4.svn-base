@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IUserPositionDao">
+	<insert id="userRegDo" parameterType="Users">
+		insert into users (u_phone,u_password ) values (#{u_phone},md5(#{u_password}));
+	</insert>
+	
+	
+	<select id="userLoginDo" parameterType="Users" resultType="Users">
+		select * from users where u_phone = #{u_phone} and u_password = md5(#{u_password});
+	</select>
+	
+	<!-- 判断用户注册的用户名是否存在 -->
+	<select id="selectUPhone" parameterType="String" resultType="String">
+		select u_phone from users where u_phone = #{u_phone};
+	</select>
+	
+	<!-- 判断用户的密码是否正确 -->
+	<select id="selectUPassword" parameterType="Users" resultType="String">
+		select u_password from users where u_phone = #{u_phone} and u_password=md5(#{u_password});
+	</select>
+	
+	<!-- 重置用户的密码-->
+	<update id="updateUPassword" parameterType="Users">
+		update users set u_password = md5(#{u_password}) where u_phone = #{u_phone};
+	</update>
+	
+</mapper>

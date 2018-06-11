@@ -1,0 +1,79 @@
+.main table tr{
+    height: 50px;
+    background-color: #fff;
+}
+.main table tr th{
+    width: 88px;
+
+}
+.main table tr td{
+    text-align: center;
+}
+
+
+.main form p{
+    margin-top: 20px;
+    display: inline-block;
+    width: 412px;
+}
+.main form p input{
+    width: 300px;
+    height: 20px;
+    border: 1px solid #DDDDDD;
+    padding-left: 10px;
+}
+.main form p:nth-child(1){
+    margin-top: 30px;
+}
+.main #salary{
+    width: 70px;
+}
+.main form p:nth-child(5) select{
+    width: 100px;
+    height: 20px;
+    font-size: 14px;
+}
+.main form p:nth-child(5) input{
+    width: 129px;
+}
+.main form p:nth-child(6) input{
+    width: 50px;
+}
+.main form p:nth-child(9) input{
+    width: 50px;
+}
+.main form p:nth-child(16),
+.main form p:nth-child(17){
+    position: relative;
+}
+.main form p:nth-child(16) label,
+.main form p:nth-child(17) label{
+    position: absolute;
+    top: -4px;
+}
+.main form p:nth-child(16) label{
+    top: 22px;
+}
+.main form p:nth-child(16) textarea,
+.main form p:nth-child(17) textarea{
+    position: absolute;
+    left: 75px;
+    border: 1px solid #DDDDDD;
+}
+.main form p:nth-child(16) textarea{
+    top: 26px;
+}
+.main form {
+    position: relative;
+}
+#submit{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    bottom: -215px;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #E84626;
+    color: #fff;
+}

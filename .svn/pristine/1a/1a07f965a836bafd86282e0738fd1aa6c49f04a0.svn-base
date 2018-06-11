@@ -1,0 +1,188 @@
+.recommend-content{
+    height: 700px;
+    background-color:#f2f2f2;
+}
+.recommend-content .content-left{
+    width: 110px;
+    height: 320px;
+    background-color: #fff;
+    float: left;
+    margin-top: 20px;
+    padding: 30px 50px 0 70px;
+    box-shadow: 3px 3px 10px #EBEBEB;
+}
+.recommend-content .content-right{
+    width: 890px;
+    height: 525px;
+    float: right;
+
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px #EBEBEB;
+}
+.content-left ul li{
+    display: block;
+    height: 50px;
+    text-align: left;
+}
+.content-left ul li a{
+    color: #333;
+    font-size: 16px;
+}
+.content-left ul li i{
+    position: absolute;
+    left: 35px;
+
+}
+
+.content-right .right-top{
+    height: 38px;
+    background-color: #f2f2f2;
+    border: 1px solid #E4E4E4;
+
+}
+.content-right .right-top li{
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    font-size: 14px;
+    border-right:1px solid #DEDEDE;
+}
+.content-right .right-top li a{
+    width: 100px;
+    color: #A9A9A9;
+    height: 36px;
+    display: block;
+}
+.content-right .right-top li a.active{
+    border-bottom:3px solid #E84626;
+    color: #373737;
+}
+.content-right .right-products{
+    height: 620px;
+    background-color: #fff;
+}
+.content-right .right-products .main{
+    float: left;display: none;
+    padding: 0 25px 0 35px;
+}
+.content-right .right-products .main.selected{display: block;}
+
+.main .main-top{
+    width: 820px;
+    height: 100px;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+.main>a{
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #E84626;
+    position: absolute;
+    top: 28px;
+    text-align: center;
+    line-height: 25px;
+    right: 40px;
+
+}
+.main .main-top p{
+    display: inline-block;
+    float: left;
+}
+.main .main-top p:first-child{
+    float: left;
+    margin-right: 20px;
+}
+.main .main-top p:first-child img{
+    width: 100px;
+}
+.main .main-top p:nth-child(2) span{
+    margin-top: 4px;
+    display: block;
+}
+.main .main-top p:nth-child(2) span:first-child{
+    font-size: 20px;
+    color: #000;
+}
+.main .main-content{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+.main .main-content p{
+    margin-top: 20px;
+}
+.main .main-content p span{
+    margin-left: 10px;
+}
+.main .main-bottom{
+    margin-top: 20px;
+}
+.main .main-bottom span:first-child{
+    display: inline-block;
+    position: absolute;
+}
+.main .main-bottom span:last-child{
+    display: inline-block;
+    width: 707px;
+    margin-left: 81px;
+}
+
+
+/*猎头编辑资料*/
+.main .main-data{
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    width: 810px;
+    padding-bottom: 20px;
+}
+.main .main-data p,
+.main .main-company p{
+    margin-top: 10px;
+}
+.main .main-data p input,
+.main .main-company p input{
+border: 1px solid #ddd;
+    width: 190px;
+    padding-left: 10px;
+
+}
+.main .main-data p:last-child select{
+    width: 99px;
+}
+.main .main-company{
+    width: 810px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.main .main-company p:nth-child(2) select{
+    width: 66px;
+}
+.main .main-company p:nth-child(3) input{
+    bottom: 0;
+    padding: 0;
+    width: 203px;
+}
+.main .main-intro{
+    margin-top: 20px;
+    position: relative;
+}
+.main .main-intro>span{
+    position: absolute;
+}
+.main .main-intro>textarea{
+    margin-left: 70px;
+}
+.main .main-intro>input{
+    display: block;
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    background-color: #E84626;
+    margin-top: 10px;
+    position: absolute;
+    right: 50%;
+    margin-right: -35px;
+}

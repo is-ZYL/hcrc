@@ -1,0 +1,84 @@
+.user-head {
+    height: 100px;
+    width: 100%;
+}
+
+.head-bottom {
+    height: 100px;
+    background-color: #2E2E2E;
+}
+
+.head-bottom .mediate span {
+    text-align: center;
+    line-height: 100px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.head-bottom .logo {
+    margin-top: 5px;
+    height: 67px;
+    float: left;
+}
+
+.head-bottom-nav {
+    width: 185px;
+    height: 100px;
+    float: right;
+}
+
+.head-bottom-nav ul li {
+    display: inline-block;
+    width: 65px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    color: #aeb0ad;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.head-bottom-nav ul li p {
+    overflow: hidden; /*内容超出后隐藏*/
+    text-overflow: ellipsis; /*超出内容显示为省略号*/
+    white-space: nowrap; /*文本不进行换行*/
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.head-bottom-nav ul li p:hover {
+    cursor: pointer;
+}
+
+.head-bottom-nav ul li p:last-child {
+    font-size: 13px;
+    color: #aeb0ad;
+}
+
+.photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid forestgreen;
+    float: right;
+    margin-top: 20px;
+}
+
+.photo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.head-bottom-nav ul li a {
+    text-decoration: none;
+    color: #666;
+}
+
+.current {
+    color: #E84626;
+}

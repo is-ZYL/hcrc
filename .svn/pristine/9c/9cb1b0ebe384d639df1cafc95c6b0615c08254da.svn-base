@@ -1,0 +1,64 @@
+package com.action;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.entity.Enterprise;
+import com.gerneral.util.Val;
+import com.service.IHrService;
+
+@Controller
+@RequestMapping("hr")
+public class HrController {
+	@Autowired
+	private IHrService iHrService;
+	
+	//执行注册
+	@RequestMapping("{uri}_hrInsertRegDo")
+	public String hrInsertReg(@PathVariable("uri") String uri,Enterprise enterprise,HttpServletRequest request,String val) {
+		System.out.println("sdfsadfasdfsadfsafdsadf");
+		String VAL = (String) request.getSession().getAttribute("VAL");
+		if(VAL.equalsIgnoreCase(val)) {
+			iHrService.hrInsertRegDo(enterprise);
+			return uri+"/hrmain";
+		}
+		return uri+"/reg";
+		
+	}
+	//显示主页
+	@RequestMapping("{uri}_hrmain")
+	public String hrmain(@PathVariable("uri") String uri) {
+		return uri+"/hrmain";
+	}
+	
+	//验证码
+	@RequestMapping("{uri}_val")
+	public void val(HttpServletRequest request,HttpServletResponse response) {
+		Val v = new Val();
+		try {
+			v.val(request, response);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//执行登录
+		@RequestMapping("selectLogin")
+		@ResponseBody
+		public Enterprise selectLogin(Enterprise enterprise , Model map) {
+			System.out.println("11111"+enterprise);
+			Enterprise enter = iHrService.selectLogin(enterprise);
+			map.addAttribute("HR_LOG", enter);
+			return enter;
+		}
+}

@@ -1,0 +1,95 @@
+.right-products .main>a{
+    width: 50px;
+    height: 25px;
+    background-color: #E84626;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    line-height: 25px;
+    top: 28px;
+    right: 40px;
+    font-size: 12px;
+}
+.main .data-top,
+.main .data-content,
+.main .data-bottom{
+    height: 100px;
+    width: 820px;
+    border-bottom: 1px solid #ccc;
+}
+.main .data-top H1{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.main .data-top p span{
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.main .data-content p,
+.main .data-bottom p,
+.main .data-claim p {
+    margin-top: 10px;
+}
+.main .data-content{
+    height: 100px;
+}
+.data-content>p{
+    display: inline-block;
+    width: 407px;
+}
+.main .data-bottom {
+    height: 90px;
+}
+.main .data-claim p span{
+    display: block;
+}
+.content-right .right-products{
+    height: 720px;
+    position: relative;
+}
+.recommend-content{
+    height: 800px;
+}
+
+.main table{
+    margin-top: 20px;
+}
+.main table td{
+    text-align: center;
+    padding: 0 10px;
+}
+.main table td:nth-child(6){
+    width: 200px;
+}
+.post-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -200px;
+}
+.main:nth-child(2) form{
+    margin-top: 20px;
+}
+.main:nth-child(2) form input{
+    width: 200px;
+    border: 1px solid #ddd;
+}
+.main:nth-child(2) form p{
+    margin-top: 10px;
+}
+.main:nth-child(2) form p:nth-child(3) span{
+    display: block;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.main:nth-child(2) form p:nth-child(4) input{
+    width: 100px;
+    height: 30px;
+    background-color: #E84626;
+    color: #fff;
+    border-radius: 5px;
+}

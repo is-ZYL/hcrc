@@ -1,0 +1,31 @@
+package com.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dao.IHeadhuntingDao;
+import com.entity.Headhunting;
+import com.service.IHeadhuntingService;
+
+@Service
+public class HeadhuntingServiceImpl implements IHeadhuntingService {
+	@Autowired
+	private IHeadhuntingDao headhuntingDao;
+
+	@Override
+	@Transactional
+	public Long insertHeadhunter(Headhunting headhunting) {
+		// TODO Auto-generated method stub
+		return headhuntingDao.insertHeadhunter(headhunting);
+	}
+
+	@Override
+	@Transactional
+	public Headhunting selectHeadhunter(Headhunting headhunting) {
+		// TODO Auto-generated method stub
+		return headhuntingDao.selectHeadhunter(headhunting);
+	}
+
+
+}

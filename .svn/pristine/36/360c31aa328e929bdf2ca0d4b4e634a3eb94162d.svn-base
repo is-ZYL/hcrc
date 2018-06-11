@@ -1,0 +1,12 @@
+package com.service;
+
+import com.entity.Headhunting;
+
+public interface IHeadhuntingService {
+
+	public Long insertHeadhunter(Headhunting headhunting);
+
+	public Headhunting selectHeadhunter(Headhunting headhunting);
+
+
+}

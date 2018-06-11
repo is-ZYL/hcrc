@@ -1,0 +1,442 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/UserFile/css/publicFolder/base.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/UserFile/css/publicFolder/main-user-head.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/UserFile/css/userCenter/userCenter.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/UserFile/css/publicFolder/reg-user-footer.css">
+    <!--设置浏览器上面显示的logo-->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/UserFile/img/userCenter/Windows 照片查看器墙纸.jpg">
+</head>
+<script src="${pageContext.request.contextPath}/UserFile/jq/publicFolder/jquery-1.11.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/UserFile/jq/publicFolder/userCenter.js"></script>
+<body>
+
+<!--用户界面头部-->
+<input id="PageContext" type="hidden" value="${pageContext.request.contextPath}" />
+<input id="Users" type="hidden" value="${sessionScope.user}" />
+<div class="user-head">
+    <div class="head-top">
+        <div class="mediate">
+                <span>
+                    <a href="${ pageContext.request.contextPath}/user_po/user_positionMain.html">个人入口 |</a>
+                    <a href="#">企业入口 |</a>
+                    <a href="#">培训入口 |</a>
+                     <a href="#">猎头入口 |</a>
+                     <a href="#">劳务派遣入口</a>
+                </span>
+
+        </div>
+    </div>
+    <div class="head-bottom">
+        <div class="mediate">
+            <div class="logo">
+                <img class="logo" src="${pageContext.request.contextPath}/UserFile/img/userCenter/hcrclogo.jpg" alt="">
+            </div>
+            <div class="head-bottom-nav">
+                <ul>
+                    <li ><a style="color: #666;" href="${ pageContext.request.contextPath}/user_po/user_positionMain.html">首页</a></li>
+                    <li  class="current"><a style="color: #E84626;"  href="">职位</a></li>
+                    <li><a href="">HR联盟</a></li>
+                    <li><a href="">培训联盟</a></li>
+                    <li><a href="">劳务派遣</a></li>
+                    <li><a href="">猎头</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="middle-content">
+
+    <div class="content">
+
+        <div class="content-left">
+
+            <ul class="aa">
+                <li class="bb" value="1"><i class="n-icon one"></i><span>个人中心</span></li>
+                <li  value="2"><i class="n-icon two"></i><span>我的简历</span></li>
+                <li  value="3"><i class="n-icon three"></i><span>职位投递</span></li>
+                <li  value="4"><i class="n-icon four "></i><span>职位收藏</span></li>
+                <li  value="5"><i class="n-icon five"></i><span>所属学苑</span></li>
+                <li  value="6"><i class="n-icon six"></i><span>消息中心</span></li>
+                <span class="messageNum">18</span>
+                <li  value="7"> <i class="n-icon seven"></i><span>屏蔽企业</span></li>
+                <li  value="8"><i class="n-icon eight"></i><span>账号安全</span></li>
+            </ul>
+
+            <div class="jinengtisheng">
+                <ul>
+                    <li>技能提升 <i class="right"></i></li>
+                    <li>UI设计</li>
+                    <li>淘宝店设计师</li>
+                    <li>商品修图师</li>
+                    <li>前端开发工程师</li>
+                    <li>网页设计师</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!--左边的内容-->
+        <div class="content-right">
+                <p>基本信息</p>
+                    <div class="userInfo">
+
+                        <div><img src="${pageContext.request.contextPath}/UserFile/img/userCenter/${sessionScope.user.u_header}" alt=""></div>
+                        <div>
+                            <p><span>${sessionScope.user.u_phone}</span><span>2018-06-06更新</span></p>
+                            <p><span>产品经理</span><span>安邦保险集团西南研究中心</span></p>
+                            <p><span>男</span><span>25岁</span><span>研究生</span><span>5年工作经验</span><span>重庆·南岸区</span></p>
+                        </div>
+                        <div>
+                            <ul class="aaa">
+                                <li>
+                                    <img src="${pageContext.request.contextPath}/UserFile/img/userCenter/skillTree.jpg" alt="">
+                                    <p>技能树</p>
+                                </li>
+                                <li>
+                                    <img src="${pageContext.request.contextPath}/UserFile/img/userCenter/resumeLogo.jpg" alt="">
+                                    <p>编辑简历</p>
+                                </li>
+                                <li>
+                                    <img src="${pageContext.request.contextPath}/UserFile/img/userCenter/flushResume.jpg" alt="">
+                                    <p>刷新简历</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+
+            <div class="titleHead">
+               <ul>
+                   <li><div>推荐职位</div></li>
+                   <li><div>申请的职位</div></li>
+                   <li><div>看过我的企业</div></li>
+               </ul>
+            </div>
+
+            <!--提示用户去完善简历-->
+            <div class="PromptMessage"><p>去完善简历  即可为您推荐职位</p></div>
+
+
+            <div class="titleHeadContent ones">
+                        <ul>
+                            <li><span>职位名称/待遇/行业</span> <span>申请日期/邀请面试状态</span></li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2000-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                               <div class="content-bottom-pos1-more">
+                                   <span>点击加载更多</span><i></i>
+                               </div>
+                            </li>
+                        </ul>
+
+
+
+            </div>
+            <div class="titleHeadContent twos">
+                        <ul>
+                            <li><span>职位名称/待遇/行业</span> <span>申请日期/邀请面试状态</span></li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>1999-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>产品经理</span>
+                                    <span>8-12K</span>
+                                    <span>互联网行业</span>
+                                    <span>2017-06-06</span>
+                                </p>
+                                <p><span>天使匠心</span><span>[成都]</span> <span>本科/2-5年经验</span> <span>[已收到面试邀请]</span></p>
+                            </li>
+                            <li>
+                               <div class="content-bottom-pos1-more">
+                                   <span>点击加载更多</span><i></i>
+                               </div>
+                            </li>
+                        </ul>
+
+
+
+            </div>
+            <div class="titleHeadContent threes">
+                        <ul>
+                            <li></li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <span>四川爱科行教育科技有限责任公司</span>
+                                    <span>10000-06-06</span>
+                                </p>
+                                <p><span>用户体验设计师</span><span>交互设计</span> <span>应用软件界面设计师</span> <span>等</span><span>8</span><span>个职位</span><span>点击访问</span></p>
+                            </li>
+
+                            <li>
+                               <div class="content-bottom-pos1-more">
+                                   <span>点击加载更多</span><i></i>
+                               </div>
+                            </li>
+                        </ul>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<!--用户注册界面脚部-->
+<div class="user-footer">
+    <div class="footer-content mediate">
+        <div class="footer-right"><img src="${pageContext.request.contextPath}/UserFile/img/userCenter/logo.jpg" alt=""></div>
+        <div class="content">
+            <p>渝ICP备11015194-1</p>
+            <p>Copyright ©2017-2018 www.huohr.com</p>
+        </div>
+        <div class="footer-left"><img src="${pageContext.request.contextPath}/UserFile/img/userCenter/Hibuick.jpg" alt=""></div>
+    </div>
+</div>
+</body>
+</html>

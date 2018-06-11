@@ -1,0 +1,183 @@
+.recommend-content{
+    height: 815px;
+    background-color:#f2f2f2;
+}
+.recommend-content .content-left{
+    width: 110px;
+    height: 320px;
+    background-color: #fff;
+    float: left;
+    margin-top: 20px;
+    padding: 30px 50px 0 70px;
+    box-shadow: 3px 3px 10px #EBEBEB;
+}
+.recommend-content .content-right{
+    width: 890px;
+    height: 525px;
+    float: right;
+	position: relative;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px #EBEBEB;
+}
+.content-left ul li{
+    display: block;
+    height: 50px;
+    text-align: left;
+}
+.content-left ul li a{
+    color: #333;
+    font-size: 16px;
+}
+.content-left ul li i{
+    position: absolute;
+    left: 35px;
+
+}
+
+.content-right .right-top{
+    height: 38px;
+    background-color: #f2f2f2;
+    border: 1px solid #E4E4E4;
+
+}
+.content-right .right-top li{
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    font-size: 14px;
+    border-right:1px solid #DEDEDE;
+}
+.content-right .right-top li a{
+    width: 100px;
+    color: #A9A9A9;
+    height: 36px;
+    display: block;
+}
+.content-right .right-top li a.active{
+    border-bottom:3px solid #E84626;
+    color: #373737;
+}
+.content-right .right-products{
+    height: 734px;
+    background-color: #fff;
+}
+.content-right .right-products .main{
+    float: left;display: none;
+    padding: 0 25px 0 35px;
+}
+.content-right .right-products .main.selected{display: block;}
+
+.content-right .right-products .main ul li{
+    width: 740px;
+    display: block;
+    height: 69px;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+
+}
+.content-right .right-products .main ul li:nth-child(1n+2){
+    padding-left: 72px;
+}
+.content-right .right-products .main ul li:nth-child(1){
+    height: 39px;
+    line-height: 39px;
+    border: 0;
+}
+.content-right .right-products .main ul li:nth-child(1) p{
+    color: #999999;
+}
+.content-right .right-products .main ul li:nth-child(1) p span:nth-child(2){
+    float: right;
+    margin-right: 122px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p{
+    display: inline-block;
+    height: 44px;
+    padding-top: 11px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p:nth-of-type(2){
+    float: right;
+    margin-right: 95px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p span{
+    display: block;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p span:nth-child(2){
+    margin-top: 5px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) i{
+    margin-right: 20px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) i.userLogo img{
+    position: absolute;
+    left: 0px;
+    top: 9px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) i:first-child{
+    font-size: 16px;
+    font-weight: 700;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p span i:nth-child(2){
+
+    font-size: 10px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p span:nth-child(2) i{
+    margin-right: 10px;
+}
+.content-right .right-products .main ul li:nth-child(1n+2) p span:nth-child(2) i:nth-child(2){
+    color: #E84626;
+}
+.content-right .right-products .main .post-bottom{
+    height: 65px;
+	position: absolute;
+		bottom: -250px;
+		left: 50%;
+    margin-left: -195px;
+}
+.content-right .right-products .main .post-bottom p{
+    text-align: center;
+    line-height: 65px;
+}
+.content-right .right-products .main .post-bottom p span{
+    margin-right: 20px;
+}
+.content-right .right-products .main .post-bottom p span a{
+   cursor: pointer;
+}
+.main .search{
+    height: 35px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.main .search form{
+    padding-left: 30px;
+    overflow: hidden;
+    height: 35px;
+}
+.main .search select{
+    width: 100px;
+    height: 33px;
+    font-size: 14px;
+    padding-left: 20px;
+    background-color: #F1F1F1;
+    border: 1px solid #DDDDDD;
+
+}
+.main .search input:nth-child(2){
+    width: 438px;
+    height: 31px;
+    padding-left: 20px;
+    margin-right: 20px;
+    font-family:"微软雅黑";
+    background-color: #F1F1F1;
+    border: 1px solid #DDDDDD;
+}
+.main .search input:nth-child(3){
+    width: 100px;
+    height: 35px;
+    background-color: #E84626;
+    font-size: 16px;
+    color: #fff;
+}

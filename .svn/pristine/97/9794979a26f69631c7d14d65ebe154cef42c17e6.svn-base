@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IHrDao">
+	<insert id="hrInsertRegDo" parameterType="Enterprise" >
+		insert into enterprise values(0,#{e_username},md5(#{e_password}))
+	</insert>
+	<select id="selectLogin" parameterType="Enterprise" resultType="Enterprise">
+		select * from enterprise where e_username = #{e_username} and e_password=md5(#{e_password})
+	</select>	
+</mapper>

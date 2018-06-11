@@ -1,0 +1,250 @@
+var urls;
+var a = [
+    "",
+    "/user_po/user_center",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "/user_po/user_accountSecurity",
+];
+
+
+var isPass = false; //声明一个布尔全局变量  执行ajax请求时判断
+
+$(function () {
+    changeDiv();
+    changeContentLeftCss(urls);
+    birthdaySelectData();
+
+    $(".myFileUpload").change(function () {
+        var arrs = $(this).val().split('\\');
+        var filename = arrs[arrs.length - 1];
+        $(".show").html(filename);
+    });
+
+    checkNum("resumeIntroduce",2000);
+    checkNum("resumeIntroduce1",240);
+    rangeChange("range","rangeType");
+    range();
+});
+
+
+function changeDiv() {
+    $(".titleHead>ul li:first-child").click(function () {
+            $(".ones").show();
+            $(".twos").hide();
+            $(".threes").hide();
+            $(".PromptMessage p").html("去完善简历  即可为您推荐职位");
+            $(".titleHead > ul li:nth-child(3) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(2) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(1) div").css("border-bottom", "3px solid #E84626");
+            $(".titleHead ul li:first-child").css("color", "#E84626");
+            $(".titleHead ul li:nth-child(2)").css("color", "#999999");
+            $(".titleHead ul li:nth-child(3)").css("color", "#999999")
+        }
+    );
+    $(".titleHead>ul li:nth-child(2)").click(function () {
+            $(".ones").hide();
+            $(".twos").show();
+            $(".threes").hide();
+            $(".PromptMessage p").html("您没有申请任何职位");
+            $(".titleHead > ul li:nth-child(1) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(3) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(2) div").css("border-bottom", "3px solid #E84626");
+            $(".titleHead ul li:first-child").css("color", "#999999");
+            $(".titleHead ul li:nth-child(2)").css("color", "#E84626");
+            $(".titleHead ul li:nth-child(3)").css("color", "#999999")
+        }
+    );
+    $(".titleHead>ul li:nth-child(3)").click(function () {
+            $(".ones").hide();
+            $(".twos").hide();
+            $(".threes").show();
+            $(".PromptMessage p").html("没有任何企业查看过您！ 去完善简历");
+            $(".titleHead > ul li:nth-child(1) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(2) div").css("border-bottom", "none");
+            $(".titleHead > ul li:nth-child(3) div").css("border-bottom", "3px solid #E84626");
+            $(".titleHead ul li:first-child").css("color", "#999999");
+            $(".titleHead ul li:nth-child(2)").css("color", "#999999");
+            $(".titleHead ul li:nth-child(3)").css("color", "#E84626")
+        }
+    );
+}
+
+
+/**
+ * 点击更改css样式
+ * @param url
+ */
+function changeContentLeftCss(url) {
+    $('.aa').on('click', 'li', function (e) {
+        $('.aa li').removeClass('bb');
+        $(this).addClass('bb');
+        urls = a[$(".bb").val()];
+    });
+}
+
+//用户生日的select数据
+function birthdaySelectData() {
+    var date = new Date();//创建日期对象
+    var year = date.getFullYear();//获取当前年份
+    for (var i = year - 100; i <= year; i++) {//在id为year的selector附加option选项
+        $(".year").append("<option value=\"" + i + "\">" + i + "</option>");//append函数附加html到元素结尾处
+    }
+    for (var i = 1; i <= 12; i++) {
+        $(".month").append("<option value=\"" + i + "\">" + i + "</option>");//为Id为month的selector附加option选项
+    }
+    getDays($(".month").val(), $(".year").val());//执行函数getDays()，传参year和month，初始化day selector
+
+
+}
+
+
+/**
+ * 年月对应的日数算法
+ * @param month
+ * @param year
+ * @returns {number}
+ */
+function getDaysInMonth(month, year) {
+    var days;
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+        days = 31;//固定31
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;//固定30
+    } else {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {     //排除百年，每四年一闰；每四百年一闰；
+            days = 29; //闰年29
+        } else {
+            days = 28; //平年28
+        }
+    }
+    return days;//返回该年月的日数
+}
+
+/**
+ *获取日
+ */
+function getDays() {
+    var year = $(".year").val();//year selector onchange="getDays()"动态获取用户选择的year值
+    var month = $(".month").val();//month selector onchange="getDays()"动态获取用户选择的month值
+    var days = getDaysInMonth(month, year);//调用算法函数计算对应年月的日数
+    $(".day").empty();//调用empty()函数清空day selector options，然后再append函数往day selector添加options
+    for (var i = 1; i <= days; i++) {
+        $(".day").append("<option value=\"" + i + "\">" + i + "</option>");
+    }
+}
+
+
+/**
+ * 判断邮箱格式
+ * @param str
+ */
+function checkEmail(str) {
+    var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+    if (re.test(str)) {
+        isPass = true;
+        $(".email>span").empty();
+        $(".emailInput").css("border", "1px solid #7c7c7c");
+    } else {
+        isPass = false;
+        $(".email>span").text("格式错误");
+        $(".emailInput").css("border", "1px solid red");
+    }
+}
+
+/**
+ * 判断QQ号码是否合格
+ * @param str
+ */
+function checkQQ(str) {
+    var re = /^[1-9][0-9]{4,9}$/;
+    if (re.test(str)) {
+        $(".qq>span").empty();
+        $(".qqInput").css("border", "1px solid #7c7c7c");
+        isPass = true;
+    } else {
+        isPass = false;
+        $(".qqInput").css("border", "1px solid red");
+        $(".qq>span").text("格式错误");
+    }
+}
+
+/**
+ * 限制textarea字数
+ */
+function checkNum( who,Num) {
+    /*字数限制*/
+   $("."+who+">textarea").on("input propertychange", function() {
+        var $this = $(this),
+            _val = $this.val(),
+            count = "";
+        if (_val.length > Num) {
+            $this.val(_val.substring(0, Num));
+        }
+        count = 2000 - $this.val().length;
+        $("#text-count").text(count);
+        $("."+who+">span").text($this.val().length+"/"+Num);
+
+        if($this.val().length==Num){
+            $("."+who+">span").css("color","#E84626");
+        }else {
+            $("."+who+">span").css("color","#666");
+        }
+
+    });
+
+}
+
+
+function range(who) {
+    //滑动时的样式
+    $.fn.RangeSlider = function(cfg){
+        this.sliderCfg = {
+            min: cfg && !isNaN(parseFloat(cfg.min)) ? Number(cfg.min) : null,
+            max: cfg && !isNaN(parseFloat(cfg.max)) ? Number(cfg.max) : null,
+            step: cfg && Number(cfg.step) ? cfg.step : 1,
+            callback: cfg && cfg.callback ? cfg.callback : null
+        };
+
+        var $input = $(this);
+        var min = this.sliderCfg.min;
+        var max = this.sliderCfg.max;
+        var step = this.sliderCfg.step;
+        var callback = this.sliderCfg.callback;
+
+        $input.attr('min', min)
+            .attr('max', max)
+            .attr('step', step);
+
+        $input.bind("input", function(e){
+            $input.attr('value', this.value);
+            $input.css( 'background', 'linear-gradient(to right, #059CFA, #ebeff4 ' + this.value + '%, #ebeff4)' );
+            if ($.isFunction(callback)) {
+                callback(this);
+            }
+        });
+    };
+    $('.range').RangeSlider({ min: 0,   max: 100,  step: 1,  callback: ''});//.range为input的class名
+}
+
+/**
+ * input range 拖动改变 后面span内的值
+ */
+function rangeChange(range,span){
+    $("."+range).change(function () {
+        var Num = $(this).val();
+        if(Num > 80){
+            $("."+span).html("精通")
+        }else if(Num > 50 && Num<80){
+            $("."+span).html("熟练")
+        }else if(Num<50 && Num>30){
+            $("."+span).html("良好")
+        }else if(Num<30){
+            $("."+span).html("一般")
+        }
+    })
+}

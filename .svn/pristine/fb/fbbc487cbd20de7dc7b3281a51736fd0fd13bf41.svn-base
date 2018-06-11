@@ -1,0 +1,43 @@
+package com.entity;
+
+public class Headhunting {
+	/**
+	 * 猎头账号
+	 */
+	private int h_id;
+	
+	private String h_ushrnamh;
+	
+	private String h_password;
+
+	public int getH_id() {
+		return h_id;
+	}
+
+	public void setH_id(int h_id) {
+		this.h_id = h_id;
+	}
+
+	public String getH_ushrnamh() {
+		return h_ushrnamh;
+	}
+
+	public void setH_ushrnamh(String h_ushrnamh) {
+		this.h_ushrnamh = h_ushrnamh;
+	}
+
+	public String getH_password() {
+		return h_password;
+	}
+
+	public void setH_password(String h_password) {
+		this.h_password = h_password;
+	}
+
+	@Override
+	public String toString() {
+		return "Headhunting [h_id=" + h_id + ", h_ushrnamh=" + h_ushrnamh + ", h_password=" + h_password + "]";
+	}
+	
+	
+}

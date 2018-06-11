@@ -1,0 +1,20 @@
+package com.service;
+
+import com.entity.Users;
+
+public interface IUserPositionService {
+	/*用户注册*/
+	public boolean userRegDo(Users user) throws Exception;
+	
+	/*用户登录*/
+	public Users userLoginDo(Users user) throws Exception;
+	
+	/*判断注册，用户名是否存在*/
+	public String selectUPhone(String u_phone);
+	
+	/*判断注册，用户名是否存在*/
+	public String selectUPassword(Users user);
+	
+	/*用户注册*/
+	public boolean userUpdatePass(Users user);
+}

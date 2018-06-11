@@ -1,0 +1,196 @@
+
+//全局变量：
+	/*获取当前的路径*/
+	var pathName=window.document.location.pathname;
+	/*通过字符串截取 获取到项目名*/
+	var projectName = pathName.substring(0,pathName.substr(1).indexOf('/')+1); 
+
+	
+
+
+//点击切换职位div（推荐/最新/热门）
+$(function(){
+
+	
+	
+   $(".content-bottom-head ul li:first-child").click(function () {
+       $(".content-bottom-pos").show();
+       $(".eg2").hide();
+       $(".eg3").hide();
+       $(".content-bottom-head ul li:first-child").css("color","#E84626");
+       $(".content-bottom-head ul li:nth-child(2)").css("color","#999999");
+       $(".content-bottom-head ul li:nth-child(3)").css("color","#999999")
+       }
+   );
+   $(".content-bottom-head ul li:nth-child(2)").click(function () {
+       $(".content-bottom-pos").hide();
+       $(".eg2").show();
+       $(".eg3").hide();
+       $(".content-bottom-head ul li:first-child").css("color","#999999");
+       $(".content-bottom-head ul li:nth-child(2)").css("color","#E84626");
+       $(".content-bottom-head ul li:nth-child(3)").css("color","#999999")
+       }
+   );
+   $(".content-bottom-head ul li:nth-child(3)").click(function () {
+       $(".content-bottom-pos").hide();
+       $(".eg2").hide();
+       $(".eg3").show();
+       $(".content-bottom-head ul li:first-child").css("color","#999999");
+       $(".content-bottom-head ul li:nth-child(2)").css("color","#999999");
+       $(".content-bottom-head ul li:nth-child(3)").css("color","#E84626")
+   }
+)
+
+
+   //职位tab切换  
+    $(".position_all_top ul >li").mouseenter(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".position_all_bottom").eq($(this).index()).addClass("selected").siblings().removeClass("selected");
+    })
+
+    //点击注册按钮  进入注册页面（通过重定向的方式）
+    $(".button input:first-child").click(function(){
+    	goTo("/user_reg");
+    })
+    
+    /*点击登录提交数据到后台验证*/
+    $(".button input:last-child").click(function(){
+        Login();
+    }); 
+    
+});
+
+/*跳转页面*/
+function goTo(url){
+	window.location.replace(projectName+url);
+}
+
+
+/*改变css文件*/
+/*1：新建标签*/
+function createjscssfile(filename,filetype){
+
+	if (filetype=="js"){
+
+	varfileref=document.createElement('script')
+
+	fileref.setAttribute("type","text/javascript")
+
+	fileref.setAttribute("src",filename)
+
+	}
+
+	else if (filetype=="css"){
+
+	var fileref=document.createElement("link")
+
+	fileref.setAttribute("rel","stylesheet")
+
+	fileref.setAttribute("type","text/css")
+
+	fileref.setAttribute("href",filename)
+
+	}
+
+	return fileref
+
+	}
+/*执行处理*/
+function replacejscssfile(oldfilename,newfilename, filetype){
+
+	var targetelement=(filetype=="js")?"script" : (filetype=="css")? "link" :"none"
+
+	var targetattr=(filetype=="js")?"src" : (filetype=="css")? "href" :"none"
+
+	var allsuspects=document.getElementsByTagName(targetelement)
+
+	for (var i=allsuspects.length; i>=0;i--){
+
+	if (allsuspects[i] &&allsuspects[i].getAttribute(targetattr)!=null &&allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){
+
+	  var newelement=createjscssfile(newfilename, filetype)
+
+	  allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
+
+		}
+
+	}
+
+}
+
+
+
+/*执行登录*/
+function Login(){
+    if(Check())
+    {
+        LoginSuccess();
+    }
+}
+
+function Check(){
+    if($("#txtUser").val()=="")
+    {
+        alert("The user isn't empty");
+        $("#txtUser").focus();
+        return false;
+    }
+    if($("#txtPassword").val()=="")
+    {
+        alert("The Password isn't empty")
+        $("#txtPassword").focus();
+        return false;
+    }
+    return true;
+}
+
+function LoginSuccess(){
+    $.ajax({
+            type:"POST",
+            url:projectName+"/user_po/user_login",
+            data:{u_phone:$("#txtUser").val(),u_password:$("#txtPassword").val()},
+            success:function(data){
+            	$(".position_login > div").remove();
+            	replacejscssfile($("#PageContext").val()+"/UserFile/css/main-position-content.css",$("#PageContext").val()+"/UserFile/css/main-position-content(login).css","css");
+            	alert(data);
+            	$(".position_login").html(
+            			"<div class='login_all userInfo'>"+
+            	           " <div>"+
+            	               " <div class='header'><img src='"+$("#PageContext").val()+"/UserFile/img/companyLogo.jpg' ></div>"+
+            	                "<div>"+
+            	                    "<p>"+data.u_phone+"</p>"+
+            						"<p>"+data.u_phone+"</p>"+
+            						"<p>"+data.u_phone+"</p>"+
+            	                "</div>"+
+            	            "</div>"+
+
+            	           "<div>"+
+            	              " <ul>"+
+            	                  " <li>"+
+            	                        "<img src='"+$("#PageContext").val()+"/UserFile/img/user-logo.jpg' >"+
+            	                        "<p>个人中心</p>"+
+            	                    "</li>"+
+            	                    "<li>"+
+            	                       " <img src='"+$("#PageContext").val()+"/UserFile/img/flush-logo.jpg' alt=''>"+
+            	                        "<p>刷新简历</p>"+
+            	                   " </li>"+
+
+            	                    "<li>"+
+            	                        "<img src='"+$("#PageContext").val()+"/UserFile/img/history-logo.jpg' >"+
+            	                        "<p>投递历史</p>"+
+            	                    "</li>"+
+
+            	                    "<li>"+
+            	                       " <span>10</span>"+
+            	                        "<img src='"+$("#PageContext").val()+"/UserFile/img/messa-logo.jpg' >"+
+            	                        "<p>消息记录</p>"+
+            	                    "</li>"+
+            	                "</ul>"+
+
+            	           " </div>"+
+            	        "</div>"
+            	);
+            }            
+         }); 	
+    } 
+

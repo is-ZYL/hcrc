@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IUserPositionDao">
+	<insert id="userRegDo" parameterType="Users">
+		insert into users (u_phone,u_password ) values (#{u_phone},md5(#{u_password}));
+	</insert>
+	
+	<select id="userLoginDo" parameterType="Users" resultType="Users">
+		select * from users where u_phone = #{u_phone} and u_password = md5(#{u_password});
+	</select>
+</mapper>

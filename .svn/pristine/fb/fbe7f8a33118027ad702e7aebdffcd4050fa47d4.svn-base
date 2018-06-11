@@ -1,0 +1,28 @@
+.user-footer{
+    height: 200px;
+    background-color: #2e2e2e;
+    position: relative;
+}
+.user-footer .footer-content{
+    position: relative;
+    padding-top: 45px;
+}
+.user-footer .footer-content p{
+   color: #666666;
+    margin: 0;
+}
+.user-footer .footer-content div{
+    display: inline-block;
+
+} .footer-content .footer-right img{
+    width: 150px;
+}
+.footer-content .content{
+    position: absolute;
+    height: 52px;
+    top: 63px;
+}
+.footer-content .footer-left{
+    float: right;
+}
+

@@ -1,0 +1,190 @@
+package com.entity;
+
+public class Resume {
+	/**
+	 * 个人简历
+	 */
+	private int r_id;
+	
+	private String r_rname;
+	
+	private String r_name;
+	
+	private String r_sex;
+	
+	private int r_age;
+	
+	private String r_address;
+	
+	private String r_phone;
+	
+	private int r_experience;
+	
+	private String r_qq;
+	
+	private String r_weixin;
+	
+	private String r_judgement;
+	
+	private Users user;
+	
+	private String r_speciality;
+	
+	private String r_personalRoom;
+	
+	private String r_softwareSkills;
+	
+	private String r_expressDelivery;
+	
+	private String r_sendtime;
+	
+	private String r_whoRead;
+
+	public int getR_id() {
+		return r_id;
+	}
+
+	public void setR_id(int r_id) {
+		this.r_id = r_id;
+	}
+
+	public String getR_rname() {
+		return r_rname;
+	}
+
+	public void setR_rname(String r_rname) {
+		this.r_rname = r_rname;
+	}
+
+	public String getR_name() {
+		return r_name;
+	}
+
+	public void setR_name(String r_name) {
+		this.r_name = r_name;
+	}
+
+	public String getR_sex() {
+		return r_sex;
+	}
+
+	public void setR_sex(String r_sex) {
+		this.r_sex = r_sex;
+	}
+
+	public int getR_age() {
+		return r_age;
+	}
+
+	public void setR_age(int r_age) {
+		this.r_age = r_age;
+	}
+
+	public String getR_address() {
+		return r_address;
+	}
+
+	public void setR_address(String r_address) {
+		this.r_address = r_address;
+	}
+
+	public String getR_phone() {
+		return r_phone;
+	}
+
+	public void setR_phone(String r_phone) {
+		this.r_phone = r_phone;
+	}
+
+	public int getR_experience() {
+		return r_experience;
+	}
+
+	public void setR_experience(int r_experience) {
+		this.r_experience = r_experience;
+	}
+
+	public String getR_qq() {
+		return r_qq;
+	}
+
+	public void setR_qq(String r_qq) {
+		this.r_qq = r_qq;
+	}
+
+	public String getR_weixin() {
+		return r_weixin;
+	}
+
+	public void setR_weixin(String r_weixin) {
+		this.r_weixin = r_weixin;
+	}
+
+	public String getR_judgement() {
+		return r_judgement;
+	}
+
+	public void setR_judgement(String r_judgement) {
+		this.r_judgement = r_judgement;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	public String getR_speciality() {
+		return r_speciality;
+	}
+
+	public void setR_speciality(String r_speciality) {
+		this.r_speciality = r_speciality;
+	}
+
+	public String getR_personalRoom() {
+		return r_personalRoom;
+	}
+
+	public void setR_personalRoom(String r_personalRoom) {
+		this.r_personalRoom = r_personalRoom;
+	}
+
+	public String getR_softwareSkills() {
+		return r_softwareSkills;
+	}
+
+	public void setR_softwareSkills(String r_softwareSkills) {
+		this.r_softwareSkills = r_softwareSkills;
+	}
+
+	public String getR_expressDelivery() {
+		return r_expressDelivery;
+	}
+
+	public void setR_expressDelivery(String r_expressDelivery) {
+		this.r_expressDelivery = r_expressDelivery;
+	}
+
+	public String getR_sendtime() {
+		return r_sendtime;
+	}
+
+	public void setR_sendtime(String r_sendtime) {
+		this.r_sendtime = r_sendtime;
+	}
+
+	public String getR_whoRead() {
+		return r_whoRead;
+	}
+
+	public void setR_whoRead(String r_whoRead) {
+		this.r_whoRead = r_whoRead;
+	}
+	
+	
+	
+	
+}

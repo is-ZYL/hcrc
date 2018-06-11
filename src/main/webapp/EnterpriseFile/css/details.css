@@ -1,0 +1,206 @@
+.dingdan-conter{
+    width: 100%;
+    height: 900px;
+    background-color: #F2F2F2;
+}
+.conter-left{
+    width: 210px;
+    height: 240px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    float: left;
+}
+.conter-right{
+    position: relative;
+    width: 910px;
+    height: 860px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    float: right;
+}
+.conter-left p{
+    margin-top:30px;
+    margin-left: 30px;
+}
+.conter-left span{
+    margin-left: 30px;
+    font-size: 18px;
+}
+.conter-left p:nth-child(3)span{
+    color: #E84626;
+}
+.right-top {
+    width: 910px;
+    height: 30px;
+    background-color: #F2F2F2;
+    border: 1px solid #cccccc;
+}
+.right-top a:nth-child(1) span{
+    font-size: 20px;
+    margin-left: 30px;
+}
+.job-details{
+    width: 845px;
+    height: 40px;
+    margin-left: 30px;
+}
+.job-details ul li{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 17px;
+    color: #000;
+    margin-top: 10px;
+}
+.java-one{
+    width: 845px;
+    height: 113px;
+    margin-left: 30px;
+    border-bottom: 1px solid #cccccc;
+}
+.java-one p:nth-child(1){
+    width: 845px;
+    height: 50px;
+}
+.java-one p:nth-child(2){
+    width: 845px;
+    height: 63px;
+}
+.java-one p:nth-child(1) span{
+    line-height: 50px;
+    text-align: center;
+}
+.java-one p:nth-child(1) span:nth-child(1){
+    font-size: 20px;
+}
+.java-one p:nth-child(2) span{
+    line-height: 63px;
+    text-align: center;
+}
+.java-two-number{
+    width: 845px;
+    height: 170px;
+
+    margin-left: 30px;
+    border-bottom: 1px solid #cccccc;
+}
+.two-number-left{
+    width: 485px;
+    height: 170px;
+    float: left;
+}
+.two-number-left ul{
+    display: inline-block;
+}
+.two-number-left ul li{
+    margin-top: 15px;
+    font-size: 17px;
+}
+.two-number-left ul:nth-child(2){
+    margin-left: 20px;
+}
+.two-number-right{
+    width: 360px;
+    height: 170px;
+    float: right;
+}
+.two-number-right ul{
+    display: inline-block;
+}
+.two-number-right ul li{
+    margin-top: 15px;
+    font-size: 17px;
+}
+.two-number-right ul:nth-child(2){
+    margin-left: 20px;
+}
+.java-three-people{
+    width: 845px;
+    height: 175px;
+    margin-left: 30px;
+    border-bottom: 1px solid #cccccc;
+
+}
+.three-people-left {
+    width: 485px;
+    height: 175px;
+    float: left;
+}
+.three-people-left ul{
+    display: inline-block;
+}
+.three-people-left ul li {
+    margin-top: 15px;
+    font-size: 15px;
+}
+.three-people-left ul:nth-child(2){
+    margin-left: 20px;
+}
+.three-people-right{
+    width: 360px;
+    height: 175px;
+    float: right;
+}
+.three-people-right ul{
+    display: inline-block;
+}
+.three-people-right ul li{
+    margin-top: 15px;
+    font-size: 15px;
+}
+.three-people-right ul:nth-child(2){
+    margin-left: 20px;
+}
+.java-four-post{
+    width: 845px;
+    height: 328px;
+    margin-left: 30px;
+}
+. {
+    width: 845px;
+    height: 65px;
+}
+.post-advantage-left ul li{
+    display: inline-block;
+    line-height: 65px;
+    text-align: center;
+    font-size: 16px;
+}
+.post-advantage-left ul li:nth-child(2){
+    margin-left: 30px;
+}
+.four-post-describe{
+    width: 845px;
+    height: 100px;
+}
+.four-post-describe ul{
+    display: inline-block;
+}
+.four-post-describe ul:nth-child(2) {
+    margin-left: 30px;
+}
+.four-post-describe ul:nth-child(1) li{
+    font-size: 17px;
+}
+.four-post-requirement{
+    width:845px;
+    height: 162px;
+    position: relative;
+}
+.four-post-requirement ul{
+    display: inline-block;
+}
+.four-post-requirement ul:nth-child(2){
+    margin-left: 100px;
+    font-size: 15px;
+}
+.four-post-requirement ul:nth-child(1) li {
+    position: absolute;
+    top: 0px;
+    font-size: 17px;
+}
+.bianji{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: 1px solid #cccccc;
+}

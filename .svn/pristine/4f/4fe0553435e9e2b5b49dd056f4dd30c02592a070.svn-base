@@ -1,0 +1,43 @@
+package com.entity;
+
+public class Enterprise {
+	/**
+	 * 企业账号
+	 */
+	private int e_id;
+	
+	private String e_username;
+	
+	private String e_password;
+
+	public int getE_id() {
+		return e_id;
+	}
+
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
+	}
+
+	public String getE_username() {
+		return e_username;
+	}
+
+	public void setE_username(String e_username) {
+		this.e_username = e_username;
+	}
+
+	public String getE_password() {
+		return e_password;
+	}
+
+	public void setE_password(String e_password) {
+		this.e_password = e_password;
+	}
+
+	@Override
+	public String toString() {
+		return "Enterprise [e_id=" + e_id + ", e_username=" + e_username + ", e_password=" + e_password + "]";
+	}
+
+	
+}

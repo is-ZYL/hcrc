@@ -1,0 +1,495 @@
+/*
+<input name="pwd" type="password" id="pwd"
+onpaste="return false" 不允许复制
+oncontextmenu="return false" 不允许
+oncopy="return false" 不允许粘贴
+oncut="return false"/>不允许剪切
+
+使input双击时不显示历史记录：
+<input type="text" name="textfield" autocomplete="off">
+*/
+.middle-content>div {
+	border-radius: 10px;
+}
+
+.middle-content {
+	width: 100%;
+	height: 100%;
+	margin-top: 20px;
+	overflow: hidden;
+	position: relative;
+}
+
+.middle-content .content {
+	width: 1024px;
+	height: 100%;
+	position: relative;
+	margin: auto;
+}
+
+.middle-content .content .content-left {
+	width: 200px;
+	height: 100%;
+	float: left;
+}
+
+.content-left ul li {
+	width: 100%;
+	height: 50px;
+	font-size: 18px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.aa {
+	background-color: #FFFFFF;
+}
+
+.content-left .aa>li:nth-child(-n+9):hover {
+	background-color: #c5c5c5;
+	color: #C72E28;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.bb {
+	background-color: #c5c5c5;
+	color: #C72E28;
+	border-radius: 10px;
+}
+
+.content-left ul li i {
+	margin-top: 17px;
+	margin-left: -15px;
+}
+
+.content-left ul li span {
+	padding-left: 10px;
+}
+
+.n-icon {
+	display: inline-block;
+	width: 25px;
+	height: 16px;
+	background: url(../img/nav-icon.png) no-repeat;
+}
+
+.messageNum {
+	width: 30px;
+	height: 15px;
+	font-size: 5px;
+	border: #05ddca;
+	border-radius: 10px;
+	background-color: #E84626;
+	text-align: center;
+	margin-left: 5px;
+	color: white;
+	top: 270px;
+	left: 147px;
+	position: absolute;
+}
+
+.one {
+	background-position: 0px -412px;
+}
+
+/*
+.content-left ul li:first-child:hover{
+    background-position: -37px -412px;
+}*/
+.two {
+	background-position: 0px -76px;
+}
+
+/*
+.content-left ul li:nth-child(2):hover{
+    background-position: -34px -76px;
+}
+*/
+.three {
+	background-position: 0px -189px;
+}
+
+/*
+.content-left ul li:nth-child(3):hover{
+    background-position: -34px -189px;
+}*/
+.four {
+	background-position: 0px -339px
+}
+
+/*
+.content-left ul li:nth-child(4):hover{
+    background-position: -34px -375px;
+}*/
+.five {
+	background-position: 0px -375px;
+}
+
+/*
+.content-left ul li:nth-child(5):hover{
+    background-position: -34px -228px;
+}*/
+.six {
+	background-position: 0px -228px;
+}
+
+/*
+.content-left ul li:nth-child(6):hover{
+    background-position: -34px -302px;
+}*/
+.seven {
+	background-position: 0px -302px;
+}
+
+/*
+.content-left ul li:nth-child(7):hover{
+    background-position: -34px -151px;
+}*/
+.eight {
+	background-position: 0px -151px;
+}
+
+.jinengtisheng {
+	width: 100%;
+	margin-top: 20px;
+	background-color: #FFFFFF;
+}
+
+.jinengtisheng ul {
+	width: 100%;
+	height: 250px;
+}
+
+.jinengtisheng ul li:hover {
+	cursor: pointer;
+	color: #C72E28;
+}
+
+.jinengtisheng ul li:nth-child(n+2) {
+	margin: auto;
+	width: 60%;
+	height: 30px;
+	font-size: 15px;
+	line-height: 30px;
+	text-align: left;
+	background-color: #FFFFFF;
+}
+
+.jinengtisheng ul li:first-child {
+	margin: auto;
+	text-align: left;
+	vertical-align: middle;
+	width: 60%;
+	height: 50px;
+	border-bottom: 1px solid #797979;
+	font-size: 18px;
+	line-height: 50px;
+	background-color: #FFFFFF;
+}
+
+.right {
+	width: 25px;
+	height: 20px;
+	position: absolute;
+	background-position: 0px 0px;
+	background-image: url(../img/orderzhiping_right.jpg);
+	left: 170px;
+	background-color: #FFFFFF;
+}
+
+.right:hover {
+	cursor: pointer;
+}
+
+.content-right {
+	width: 80%;
+	height: 100%;
+	float: right;
+	background-color: #FFFFFF;
+}
+
+.content-right>p:first-child {
+	width: 100%;
+	height: 40px;
+	background-color: #F2F2F2;
+	text-indent: 20px;
+	font-size: 17px;
+	line-height: 40px;
+	font-weight: bold;
+	border: 1px solid #DADADA;
+	border-radius: 10px;
+}
+
+.userInfo {
+	width: 100%;
+	height: 140px;
+}
+
+.userInfo div:first-child {
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin: 20px 20px;
+	border-radius: 50%;
+}
+
+.userInfo div:first-child>img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.userInfo div:nth-child(2) {
+	float: left;
+	height: 90px;
+	margin: 30px auto;
+}
+
+.userInfo div:nth-child(2)>p {
+	height: 30px;
+	text-align: left;
+	line-height: 30px;
+	color: #505050;
+}
+
+.userInfo div:nth-child(2) span {
+	padding-left: 15px;
+}
+
+.userInfo div:nth-child(2) p:first-child span:first-child {
+	font-size: 18px;
+	color: #000;
+}
+
+.userInfo div:last-child {
+	float: left;
+	width: 225px;
+	height: 140px;
+	margin-left: 115px;
+}
+
+.userInfo div:last-child ul {
+	width: 100%;
+	height: 100px;
+	margin: 30px auto;
+}
+
+.userInfo div:last-child ul li {
+	float: left;
+	margin-left: 20px;
+}
+
+.userInfo div:last-child ul li img {
+	width: 50px;
+	height: 50px;
+	margin: auto;
+}
+
+.userInfo div:last-child ul li p {
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+
+.titleHead {
+	width: 100%;
+	height: 55px;
+	background-color: #F2F2F2;
+	border: 1px solid #DADADA;
+}
+
+.titleHead>ul {
+	width: 50%;
+	height: 100%;
+	float: none;
+}
+
+.titleHead>ul li {
+	width: 130px;
+	height: 100%;
+	font-size: 17px;
+	float: left;
+	text-align: center;
+	margin-top: -10px;
+	line-height: 50px;
+	border: 1px solid #DADADA;
+}
+
+.titleHead>ul li:hover {
+	cursor: pointer;
+}
+
+.titleHead>ul li:first-child div:first-child {
+	width: 130px;
+	height: 95%;
+	border-bottom: 3px solid #E84626;
+}
+
+.titleHead>ul li div {
+	width: 130px;
+	height: 95%;
+}
+
+.titleHead>ul li:first-child {
+	color: #000;
+}
+
+.titleHeadContent {
+	width: 100%;
+	height: 100%;
+}
+
+.titleHeadContent ul>li {
+	font-size: 16px;
+	margin: auto;
+	width: 90%;
+	height: 100px;
+	border-bottom: 1px solid #DADADA;
+}
+
+.titleHeadContent li:first-child {
+	border: none;
+}
+
+.ones li:first-child {
+	height: 50px;
+	font-size: 15px;
+	line-height: 50px;
+}
+
+.twos li:first-child {
+	height: 50px;
+	font-size: 15px;
+	line-height: 50px;
+}
+
+.titleHeadContent li:first-child span:last-child {
+	float: right;
+}
+
+.titleHeadContent li:nth-child(n+2) p {
+	height: 20px;
+	padding-top: 20px;
+}
+
+.titleHeadContent li:nth-child(n+2) p:first-child span:first-child {
+	font-size: 16px;
+	color: #000;
+}
+
+/*第二个和第三个span标签*/
+.titleHeadContent li:nth-child(n+2) p:first-child span:nth-child(n+2):nth-child(-n+3)
+	{
+	margin-left: 10px;
+}
+
+.ones li:nth-child(n+2) p:first-child span:nth-child(2) {
+	color: #E84626;
+}
+
+.twos li:nth-child(n+2) p:first-child span:nth-child(2) {
+	color: #E84626;
+}
+
+.titleHeadContent li:nth-child(n+2) p:last-child span:nth-child(3) {
+	margin-left: 10px;
+}
+
+.ones li:nth-child(n+2) p:last-child span:nth-child(2) {
+	color: #B0B0B0;
+}
+
+.twos li:nth-child(n+2) p:last-child span:nth-child(2) {
+	color: #B0B0B0;
+}
+
+.titleHeadContent li:nth-child(n+2) p span:last-child {
+	width: 150px;
+	float: right;
+	text-align: center;
+}
+
+.ones li:nth-child(n+2) p:last-child span:last-child {
+	color: #E84626;
+}
+
+.twos li:nth-child(n+2) p:last-child span:last-child {
+	color: #E84626;
+}
+
+.content-bottom-pos1-more {
+	width: 110px;
+	height: 100%;
+	font-size: 17px;
+	text-align: center;
+	margin-left: 315px;
+	line-height: 100px;
+}
+
+.content-bottom-pos1-more>i {
+	width: 25px;
+	height: 20px;
+	position: absolute;
+	background-position: 0px 0px;
+	background-image: url(../img/orderzhiping_right.jpg);
+	left: 670px;
+	top: 1340px;
+	background-color: #FFFFFF;
+}
+
+span:hover {
+	cursor: pointer;
+	color: #E84626;
+}
+
+.ones {
+	display: none;
+}
+
+.twos {
+	display: none;
+}
+
+.threes {
+	display: none;
+}
+
+.aaa li:hover {
+	cursor: pointer;
+	color: #E84626;
+}
+
+.threes ul li:first-child {
+	border-bottom: 1px solid #DADADA;
+}
+
+.threes ul li p {
+	height: 20px;
+	padding-top: 20px;
+}
+
+.threes ul li p:last-child span:nth-child(n+2) {
+	margin-left: 10px;
+}
+
+.threes ul li:first-child {
+	display: none;
+}
+
+.PromptMessage {
+	font-size: 18px;
+	color: #000;
+	text-align: center;
+	width: 100%;
+	height: 430px;
+	position: relative;
+	vertical-align: middle;
+}
+
+.PromptMessage p {
+	width: 100%;
+	margin: 150px auto;
+	height: 100px;
+	line-height: 100px;
+}

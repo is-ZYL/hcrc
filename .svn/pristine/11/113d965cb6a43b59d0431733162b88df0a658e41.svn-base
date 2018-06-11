@@ -1,0 +1,31 @@
+package com.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dao.IHrDao;
+import com.entity.Enterprise;
+import com.service.IHrService;
+@Service
+public class IHrServiceImpl implements IHrService{
+	@Autowired
+	private IHrDao iHrDao;
+	
+	//执行注册
+	@Override
+	@Transactional
+	public boolean hrInsertRegDo(Enterprise enterprise) {
+		
+		return iHrDao.hrInsertRegDo(enterprise) > 0;
+		
+	}
+
+	@Override
+	@Transactional
+	public Enterprise selectLogin(Enterprise enterprise) {
+		
+		return iHrDao.selectLogin(enterprise);
+	}
+
+}

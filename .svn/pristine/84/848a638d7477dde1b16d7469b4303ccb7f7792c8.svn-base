@@ -1,0 +1,405 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/HeadhunterFile/css/base.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/HeadhunterFile/css/recommend-headhunter-head.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/HeadhunterFile/css/recommend-headhunter-content.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/HeadhunterFile/css/reg-user-footer.css">
+</head>
+<body>
+<!--推荐候选人头部-->
+<div class="recommend-head">
+<div class="mediate">
+    <p><img src="${pageContext.request.contextPath }/HeadhunterFile/img/hcrclogo.jpg" alt=""></p>
+    <p><a href="${pageContext.request.contextPath}/headhunter/headhunter_headhunterMain">回到首页</a></p>
+    <p>
+        <span>
+            <a href="">东方嘉盛集团</a>
+            <a href="${pageContext.request.contextPath}/headhunter/headhunter_exit">退出账号</a>
+        </span>
+        <span>
+            <img src="${pageContext.request.contextPath }/HeadhunterFile/img/head.png" alt="" style="width: 50px;">
+        </span>
+    </p>
+</div>
+</div>
+<!--内容-->
+<div class="recommend-content">
+    <div class="mediate">
+        <div class="content-left">
+            <ul>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/tuijianrencai.jpg" alt="" ></i><a href="${pageContext.request.contextPath}/headhunter/headhunter_talentPool" style="color: #EB6045">寻找候选人</a></li>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/qiyejianjie.jpg" alt=""></i><a href="${pageContext.request.contextPath}/headhunter/headhunter_positionManage">职位管理</a></li>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/gongjuxiang.jpg" alt=""></i><a href="${pageContext.request.contextPath}/headhunter/headhunter_candidate">候选人管理</a></li>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/ziliao.jpg" alt=""></i><a href="${pageContext.request.contextPath}/headhunter/headhunter_headhunterInformation">猎头资料</a></li>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/xiaoxizhongxin.jpg" alt=""></i><a href="">消息中心</a></li>
+                <li><i><img src="${pageContext.request.contextPath }/HeadhunterFile/img/zhanghaoanquan.jpg" alt=""></i><a href="${pageContext.request.contextPath}/headhunter/headhunter_account">账号安全</a></li>
+            </ul>
+        </div>
+        <div class="content-right">
+            <div class="right-top">
+                <ul>
+                    <li ><a href="" class="active">推荐候选人</a></li>
+                    <li><a href="">新入人才</a></li>
+                    <li><a href="">搜索人才</a></li>
+                </ul>
+            </div>
+            <div class="right-products">
+                <div class="main selected">
+                    <ul>
+                        <!--头部建议不要动-->
+                        <li>
+                            <p><span>人才信息</span><span class="matching">匹配职位</span></p>
+                        </li>
+                        <!--以下从数据库里面获取-->
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+                                <span>策划经理</span>
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="post-bottom">
+                        <p>
+                            <span><a href="">< 第一页</a></span>
+                            <span><a href="">< 上一页</a></span>
+                            <span><a href="">3/58</a></span>
+                            <span><a href="">下一页 ></a></span>
+                            <span><a href="">最末页 ></a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="main">
+                    <ul>
+                        <!--头部建议不要动-->
+                        <li>
+                            <p><span>人才信息</span></p>
+                        </li>
+                        <!--以下从数据库里面获取-->
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="post-bottom">
+                        <p>
+                            <span><a href="">< 第一页</a></span>
+                            <span><a href="">< 上一页</a></span>
+                            <span><a href="">1/58</a></span>
+                            <span><a href="">下一页 ></a></span>
+                            <span><a href="">最末页 ></a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="search">
+                        <form action="">
+                            <select>
+                                <option>职位</option>
+                            </select>
+                            <input type="text" name="search" placeholder="输入关键字，入:系统架构师">
+                            <input type="submit" value="搜索">
+                        </form>
+                    </div>
+                    <ul>
+                        <!--头部建议不要动-->
+                        <li>
+                            <p><span>人才信息</span></p>
+                        </li>
+                        <!--以下从数据库里面获取-->
+
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="userLogo">
+                                <span><img src="${pageContext.request.contextPath }/HeadhunterFile/img/personageLogo.jpg" alt=""></span>
+                            </i>
+                            <p>
+                                <span><i>顾某某</i><i>成都/成华区</i></span>
+                                <span><i>数据运营经理</i><i>8-12k</i><i>本科/5年</i></span>
+                            </p>
+                            <p>
+
+                                <span><i>2018.05.05</i><a href="">刷新简历</a></span>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="post-bottom">
+                        <p>
+                            <span><a href="">< 第一页</a></span>
+                            <span><a href="">< 上一页</a></span>
+                            <span><a href="">1/58</a></span>
+                            <span><a href="">下一页 ></a></span>
+                            <span><a href="">最末页 ></a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--脚部-->
+<div class="user-footer">
+    <div class="footer-content mediate">
+        <div class="footer-right"><img src="${pageContext.request.contextPath }/HeadhunterFile/img/logo.jpg" alt=""></div>
+        <div class="content">
+            <p>渝ICP备11015194-1</p>
+            <p>Copyright ©2017-2018 www.huohr.com</p>
+        </div>
+        <div class="footer-left"><img src="${pageContext.request.contextPath }/HeadhunterFile/img/Hibuick.jpg" alt=""></div>
+    </div>
+</div>
+</body>
+</html>
+<script src="${pageContext.request.contextPath }/HeadhunterFile/jq/jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+        $(".content-right .right-top li a").mouseenter(function () {
+            $(this).addClass("active").parent().siblings().children("a").removeClass("active");
+            $(".content-right .right-products .main").eq($(this).parent().index()).addClass("selected").siblings().removeClass("selected");
+        })
+    })
+</script>

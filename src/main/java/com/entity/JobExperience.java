@@ -1,0 +1,90 @@
+package com.entity;
+
+import java.io.Serializable;
+
+public class JobExperience implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5263541372350248871L;
+
+	/**
+	 * 工作经验
+	 */
+	private int je_id;
+	
+	private String je_start;
+	
+	private String je_end;
+	
+	private String je_company;
+	
+	private String je_job;
+	
+	private String je_describe;
+	
+	private Resume resume;
+
+	public int getJe_id() {
+		return je_id;
+	}
+
+	public void setJe_id(int je_id) {
+		this.je_id = je_id;
+	}
+
+	public String getJe_start() {
+		return je_start;
+	}
+
+	public void setJe_start(String je_start) {
+		this.je_start = je_start;
+	}
+
+	public String getJe_end() {
+		return je_end;
+	}
+
+	public void setJe_end(String je_end) {
+		this.je_end = je_end;
+	}
+
+	public String getJe_company() {
+		return je_company;
+	}
+
+	public void setJe_company(String je_company) {
+		this.je_company = je_company;
+	}
+
+	public String getJe_job() {
+		return je_job;
+	}
+
+	public void setJe_job(String je_job) {
+		this.je_job = je_job;
+	}
+
+	public String getJe_describe() {
+		return je_describe;
+	}
+
+	public void setJe_describe(String je_describe) {
+		this.je_describe = je_describe;
+	}
+
+	public Resume getResume() {
+		return resume;
+	}
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
+	}
+
+	@Override
+	public String toString() {
+		return "Job_experience [je_id=" + je_id + ", je_start=" + je_start + ", je_end=" + je_end + ", je_company="
+				+ je_company + ", je_job=" + je_job + ", je_describe=" + je_describe + ", resume=" + resume + "]";
+	}
+	
+}

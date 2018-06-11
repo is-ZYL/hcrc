@@ -1,0 +1,51 @@
+.user-head {
+    height: 100px;
+    width: 100%;
+    background-color: red;
+}
+.head-top{
+    height: 30px;
+    background-color: #000;
+}
+.head-top span{
+    float: right;
+    height: 30px;
+}
+.head-top span a{
+    line-height: 30px;
+    font-size: 12px;
+    margin-right: 2px;
+    color: #999999;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.head-bottom{
+    height: 70px;
+    background-color:#2E2E2E;
+}
+.head-bottom .logo{
+    height: 67px;
+    float: left;
+}
+.head-bottom-nav{
+    width: 600px;
+    height: 70px;
+    float: right;
+}
+.head-bottom-nav ul li{
+    display: inline-block;
+    width: 65px;
+    float: left;
+    margin-left: 30px;
+    font-size: 16px;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+}
+.head-bottom-nav a,
+.head-bottom-nav a:hover{
+    text-decoration:none;
+    color: #666;
+}
+.head-bottom-nav li:nth-child(1) a{
+    color: #E84626;
+}

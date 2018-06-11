@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IHrDao">
+	<!-- 注册 -->
+	<insert id="hrInsertRegDo" parameterType="Enterprise" >
+		insert into enterprise values(0,#{e_username},md5(#{e_password}),#{e_carded},#{e_corporatename},#{e_businesslicense},#{e_Contactnumber})
+	</insert>
+	<!-- 登录 -->
+	<select id="selectLogin" parameterType="Enterprise" resultType="Enterprise">
+		select * from enterprise where e_username = #{e_username} and e_password=md5(#{e_password})
+	</select>	
+	
+	<!-- 修改密码 -->
+	<update id="updateHrPassword" parameterType="Enterprise" >
+		update enterprise set e_password=md5(#{e_password}) where e_id=#{e_id}
+	</update>
+	<!-- 遍历查询  -->
+</mapper>

@@ -1,0 +1,25 @@
+.user-head {
+    height: 100px;
+    width: 100%;
+    background-color: red;
+}
+.head-top{
+    height: 30px;
+    background-color: #000;
+}
+.head-top span{
+    float: right;
+    height: 30px;
+}
+.head-top span a{
+    line-height: 30px;
+    font-size: 12px;
+    margin-right: 2px;
+}
+.head-bottom{
+    height: 70px;
+    background-color:#2E2E2E;
+}
+.head-bottom .logo{
+    height: 67px;
+}

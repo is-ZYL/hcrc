@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IUserPositionDao">
+	<!-- 设置二级缓存 -->
+	<!-- <cache></cache> -->
+
+	<!-- 用户进行注册 -->
+	<insert id="userRegDo" parameterType="Users">
+		INSERT INTO users
+		(u_phone,u_password ) VALUES (#{u_phone},md5(#{u_password}));
+	</insert>
+
+	<!-- 用户进行登录 -->
+	<select id="userLoginDo" parameterType="Users"
+		resultType="Users">
+		SELECT u_id,u_phone,u_header FROM users WHERE u_phone =
+		#{u_phone} AND u_password = md5(#{u_password});
+	</select>
+
+	<!-- 判断用户注册的用户名是否存在 -->
+	<select id="selectUPhone" parameterType="java.lang.String"
+		resultType="String">
+		SELECT u_phone FROM users WHERE u_phone = #{u_phone};
+	</select>
+
+	<!-- 判断用户的密码是否正确 -->
+	<select id="selectUPassword" parameterType="Users"
+		resultType="String">
+		SELECT u_password FROM users WHERE u_phone = #{u_phone} and
+		u_password=md5(#{u_password});
+	</select>
+
+	<!-- 重置用户的密码 -->
+	<update id="updateUPassword" parameterType="Users">
+		UPDATE users SET
+		u_password = md5(#{u_password}) WHERE u_phone = #{u_phone};
+	</update>
+	<!-- 创建简历（填写基础信息） -->
+	<insert id="insertBasicResume" parameterType="Resume">
+		INSERT INTO resume
+		(r_id,r_rname,r_name,r_sex,r_age,r_address,r_phone,r_email,r_qq,r_weChat,r_judgement,r_sendtime,u_id,r_header)
+		VALUES
+		(0,#{r_rname},#{r_name},#{r_sex},#{r_age},#{r_address},#{r_phone},#{r_email},#{r_qq},#{r_weChat},#{r_judgement},#{r_sendtime},#{user.u_id},#{r_header})
+	</insert>
+
+	<!-- 通过简历名称查询id -->
+	<select id="selectResumeId" parameterType="Resume"
+		resultType="java.lang.Long">
+		SELECT r_id FROM resume WHERE r_rname = #{r_rname}
+	</select>
+
+	<!-- 通过user的id来查询简历名称(判断是否重复) -->
+	<select id="selectRnameByUId" parameterType="Resume"
+		resultType="java.lang.String">
+		SELECT r_rname FROM resume WHERE u_id = #{user.u_id} AND
+		r_rname=#{r_rname}
+	</select>
+
+
+	<!-- 通过r_id来查询简历 -->
+	<select id="selectRnameByRId" parameterType="java.lang.Integer"
+		resultType="Resume">
+		SELECT * FROM resume WHERE r_id = #{r_id}
+	</select>
+
+
+
+	<!-- 通过user的id来查询简历条数(判断是否超过限制) -->
+	<select id="selectResumeCountByUid" parameterType="Users"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM resume WHERE u_id = #{u_id}
+	</select>
+
+	<!-- 保存用户提交的工作经验数据 -->
+	<insert id="insertJobExperience" parameterType="JobExperience">
+		INSERT INTO
+		job_experience
+		(je_id,je_start,je_end,je_company,je_job,je_describe,r_id) VALUES
+		(0,#{je_start},#{je_end},#{je_company},#{je_job},#{je_describe},#{resume.r_id})
+	</insert>
+
+	<!-- 查询当前简历的所有工作经验信息 -->
+	<select id="selectJobExperienceByRID"
+		parameterType="java.lang.Integer" resultMap="selectAllJobExperience">
+		SELECT
+		je_id,je_start,je_end,je_company,je_job,je_describe FROM
+		job_experience LEFT JOIN resume on resume.r_id=job_experience.r_id
+		WHERE job_experience.r_id=#{r_id}
+	</select>
+
+	<resultMap type="JobExperience" id="selectAllJobExperience">
+		<id column="je_id" property="je_id" />
+		<result column="je_start" property="je_start" />
+		<result column="je_end" property="je_end" />
+		<result column="je_company" property="je_company" />
+		<result column="je_job" property="je_job" />
+		<result column="je_describe" property="je_describe" />
+		<!-- resume对象 -->
+		<association property="resume" javaType="Resume">
+			<id column="r_id" property="r_id" />
+		</association>
+	</resultMap>
+
+	<!-- 查询当前简历的工作经验条数 -->
+	<select id="checkJobExperienceNumByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		job_experience WHERE r_id = #{r_id}
+	</select>
+
+	<!-- 更新当前简历的工作经验 -->
+	<update id="updateJobExperience" parameterType="JobExperience">
+		UPDATE
+		job_experience SET je_start = #{je_start},je_end =
+		#{je_end},je_company = #{je_company},je_job = #{je_job},je_describe =
+		#{je_describe} WHERE je_id = #{je_id}
+	</update>
+
+	<!-- 删除当前简历的工作经验 -->
+	<delete id="deleteJobExperience"
+		parameterType="java.lang.Integer">
+		DELETE FROM job_experience WHERE je_id = #{je_id}
+	</delete>
+
+	<!-- 查询当前简历的项目经验条数 -->
+	<select id="checkProjectExperienceNumByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		project_experience WHERE r_id = #{r_id}
+	</select>
+
+	<!-- 保存用户提交的项目经验数据 -->
+	<insert id="saveProjectExperience"
+		parameterType="ProjectExperience">
+		INSERT INTO project_experience
+		(pe_id,pe_start,pe_end,pe_name,pe_position,pe_describe,r_id) VALUES
+		(0,#{pe_start},#{pe_end},#{pe_name},#{pe_position},#{pe_describe},#{resume.r_id})
+	</insert>
+
+	<!-- 查询当前简历的所有项目经验信息 -->
+	<select id="selectProjectExperienceByRID"
+		parameterType="java.lang.Integer"
+		resultMap="selectAllProjectExperience">
+		SELECT pe_id,pe_start,pe_end,pe_name,pe_position,pe_describe
+		FROM project_experience LEFT JOIN resume on
+		resume.r_id=project_experience.r_id WHERE
+		project_experience.r_id=#{r_id}
+	</select>
+
+	<resultMap type="ProjectExperience"
+		id="selectAllProjectExperience">
+		<id column="pe_id" property="pe_id" />
+		<result column="pe_start" property="pe_start" />
+		<result column="pe_end" property="pe_end" />
+		<result column="pe_name" property="pe_name" />
+		<result column="pe_position" property="pe_position" />
+		<result column="pe_describe" property="pe_describe" />
+		<!-- resume对象 -->
+		<association property="resume" javaType="Resume">
+			<id column="r_id" property="r_id" />
+		</association>
+	</resultMap>
+
+	<!-- 更新当前简历的项目经验 -->
+	<update id="updateProjectExperience"
+		parameterType="ProjectExperience">
+		UPDATE project_experience SET pe_start =
+		#{pe_start},pe_end = #{pe_end},pe_name = #{pe_name},pe_position =
+		#{pe_position},pe_describe = #{pe_describe} WHERE pe_id = #{pe_id}
+	</update>
+
+	<!-- 删除当前简历的项目经验 -->
+	<delete id="deleteProjectExperience"
+		parameterType="java.lang.Integer">
+		DELETE FROM project_experience WHERE pe_id = #{pe_id}
+	</delete>
+
+	<!-- 查询当前简历的教育经历条数 -->
+	<select id="checkEducationExperienceNumByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		educational_experience WHERE r_id = #{r_id}
+	</select>
+
+	<!-- 保存用户提交的教育经历数据 -->
+	<insert id="saveEducationalExperience"
+		parameterType="EducationalExperience">
+		INSERT INTO educational_experience
+		(ed_id,school_name,start_time,end_time,system,major,education,r_id)
+		VALUES
+		(0,#{school_name},#{start_time},#{end_time},#{system},#{major},#{education},#{resume.r_id})
+	</insert>
+
+
+	<!-- 查询当前简历的所有项目经验信息 -->
+	<select id="selectEducationExperienceByRID"
+		parameterType="java.lang.Integer"
+		resultMap="selectAllEducationalExperience">
+		SELECT
+		ed_id,start_time,end_time,school_name,system,major,education FROM
+		educational_experience LEFT JOIN resume on
+		resume.r_id=educational_experience.r_id WHERE
+		educational_experience.r_id=#{r_id}
+	</select>
+
+	<resultMap type="EducationalExperience"
+		id="selectAllEducationalExperience">
+		<id column="ed_id" property="ed_id" />
+		<result column="school_name" property="school_name" />
+		<result column="start_time" property="start_time" />
+		<result column="end_time" property="end_time" />
+		<result column="system" property="system" />
+		<result column="major" property="major" />
+		<result column="education" property="education" />
+		<association property="resume" javaType="Resume">
+			<id column="r_id" property="r_id" />
+		</association>
+	</resultMap>
+
+	<!-- 更新当前简历的教育经历 -->
+	<update id="updateEducationExperience"
+		parameterType="EducationalExperience">
+		UPDATE educational_experience SET start_time =
+		#{start_time},end_time = #{end_time},school_name =
+		#{school_name},system = #{system},major = #{major},education=
+		#{education} WHERE ed_id = #{ed_id}
+	</update>
+
+	<!-- 删除当前简历的项目经验 -->
+	<delete id="deleteEducationExperience"
+		parameterType="java.lang.Integer">
+		DELETE FROM educational_experience WHERE ed_id =
+		#{ed_id}
+	</delete>
+
+	<!-- 查询当前简历的培训经历条数 -->
+	<select id="checkTrainExperienceNumByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		train_experience WHERE r_id = #{r_id}
+	</select>
+
+
+
+	<!-- 保存用户提交的教育经历数据 -->
+	<insert id="saveTrainExperience" parameterType="TrainExperience">
+		INSERT INTO
+		train_experience (te_id,te_school,te_start,te_end,te_course,r_id)
+		VALUES
+		(0,#{te_school},#{te_start},#{te_end},#{te_course},#{resume.r_id})
+	</insert>
+
+	<!-- 查询当前简历的所有项目经验信息 -->
+	<select id="selectTrainExperienceByRID"
+		parameterType="java.lang.Integer" resultMap="selectAllTrainExperience">
+		SELECT
+		te_id,te_school,te_start,te_end,te_course FROM train_experience LEFT
+		JOIN resume on resume.r_id=train_experience.r_id WHERE
+		train_experience.r_id=#{r_id}
+	</select>
+
+	<resultMap type="TrainExperience"
+		id="selectAllTrainExperience">
+		<id column="te_id" property="te_id" />
+		<result column="te_school" property="te_school" />
+		<result column="te_start" property="te_start" />
+		<result column="te_end" property="te_end" />
+		<result column="te_course" property="te_course" />
+		<association property="resume" javaType="Resume">
+			<id column="r_id" property="r_id" />
+		</association>
+	</resultMap>
+
+	<!-- 更新当前简历的教育经历 -->
+	<update id="updateTrainExperience"
+		parameterType="TrainExperience">
+		UPDATE train_experience SET te_school =
+		#{te_school},te_start = #{te_start},te_course = #{te_course},te_end =
+		#{te_end} WHERE te_id = #{te_id}
+	</update>
+
+	<!-- 删除当前简历的项目经验 -->
+	<delete id="deleteTrainExperience"
+		parameterType="java.lang.Integer">
+		DELETE FROM train_experience WHERE te_id = #{te_id}
+	</delete>
+
+
+	<!-- 查询当前简历的特长 -->
+	<select id="checkR_SpecialityByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.String">
+		SELECT r_speciality FROM resume WHERE r_id = #{r_id}
+	</select>
+
+	<!-- 更新当前简历的特长 -->
+	<update id="saveR_Speciality" parameterType="map">
+		UPDATE resume SET
+		r_speciality = #{r_speciality} WHERE r_id = #{r_id}
+	</update>
+
+	<!-- 查询当前简历的个人空间 -->
+	<select id="selectR_personalRoomByRID"
+		parameterType="java.lang.Integer" resultType="java.lang.String">
+		SELECT r_personalRoom FROM resume WHERE r_id = #{r_id}
+	</select>
+
+	<!-- 插入当前简历的个人空间 -->
+	<update id="saveR_personalRoom" parameterType="Resume">
+		UPDATE resume SET
+		r_personalRoom = #{r_personalRoom} WHERE r_id = #{r_id}
+	</update>
+
+
+	<!-- 保存用户提交的教育经历数据 -->
+	<insert id="skillSave" parameterType="ResumeSoftwareskills">
+		INSERT INTO
+		resume_softwareskills (rs_id,rs_name,rs_proficiency,r_id) VALUES
+		(0,#{rs_name},#{rs_proficiency},#{resume.r_id})
+	</insert>
+
+	<!-- 查询当前简历的所有技能 -->
+	<select id="selectSkillByRID" parameterType="java.lang.Integer"
+		resultMap="selectAllSoftwareskills">
+		SELECT rs_id,rs_name,rs_proficiency FROM
+		resume_softwareskills LEFT JOIN resume on
+		resume.r_id=resume_softwareskills.r_id WHERE
+		resume_softwareskills.r_id=#{r_id}
+	</select>
+	<resultMap type="ResumeSoftwareskills"
+		id="selectAllSoftwareskills">
+		<id column="rs_id" property="rs_id" />
+		<result column="rs_name" property="rs_name" />
+		<result column="rs_proficiency" property="rs_proficiency" />
+		<association property="resume" javaType="Resume">
+			<id column="r_id" property="r_id" />
+		</association>
+	</resultMap>
+
+	<!-- 删除当前简历的个人技能 -->
+	<delete id="skillDeleteById"
+		parameterType="ResumeSoftwareskills">
+		DELETE FROM resume_softwareskills WHERE rs_id = #{rs_id}
+		AND r_id = #{resume.r_id}
+	</delete>
+
+
+	<!-- 去重复（DISTINCT）查询当前用户的所有简历 -->
+	<select id="selectAllResumeByUid" parameterType="Users" resultMap="selectAllResumeByUids">
+		SELECT DISTINCT
+	resume.r_id,
+	resume.r_rname,
+	resume.r_name,
+	resume.r_sex,
+	resume.r_age,
+	resume.r_address,
+	resume.r_phone,
+	resume.r_experience,
+	resume.r_qq,
+	resume.r_weChat,
+	resume.r_judgement,
+	resume.u_id,
+	resume.r_speciality,
+	resume.r_personalRoom,
+	resume.r_expressDelivery,
+	resume.r_sendtime,
+	resume.r_header,
+	resume.r_email 
+FROM
+	resume
+	LEFT JOIN job_experience ON resume.r_id = job_experience.r_id
+	LEFT JOIN educational_experience ON resume.r_id = educational_experience.r_id
+	LEFT JOIN project_experience ON resume.r_id = project_experience.r_id
+	LEFT JOIN resume_softwareskills ON resume.r_id = resume_softwareskills.r_id 
+ WHERE resume.u_id=#{u_id}
+	</select>
+	
+
+	<!-- 通过r_id来查询简历 -->
+	<select id="selectResumeByRId" parameterType="Resume" resultMap="selectAllResumeByUids">
+		
+SELECT DISTINCT
+	resume.r_id,
+	resume.r_rname,
+	resume.r_name,
+	resume.r_sex,
+	resume.r_age,
+	resume.r_address,
+	resume.r_phone,
+	resume.r_experience,
+	resume.r_qq,
+	resume.r_weChat,
+	resume.r_judgement,
+	resume.u_id,
+	resume.r_speciality,
+	resume.r_personalRoom,
+	resume.r_expressDelivery,
+	resume.r_sendtime,
+	resume.r_header,
+	resume.r_email,
+	resume.r_flushTime 
+FROM
+	resume
+	LEFT JOIN job_experience ON resume.r_id = job_experience.r_id
+	LEFT JOIN educational_experience ON resume.r_id = educational_experience.r_id
+	LEFT JOIN project_experience ON resume.r_id = project_experience.r_id
+	LEFT JOIN resume_softwareskills ON resume.r_id = resume_softwareskills.r_id
+	LEFT JOIN train_experience ON resume.r_id = train_experience.r_id 
+WHERE
+	resume.r_id = #{r_id}
+	</select>
+
+
+<resultMap type="Resume" id="selectAllResumeByUids">
+		<id column="r_id" property="r_id" />
+		<result column="r_rname" property="r_rname" />
+		<result column="r_name" property="r_name" />
+		<result column="r_sex" property="r_sex" />
+		<result column="r_age" property="r_age" />
+		<result column="r_address" property="r_address" />
+		<result column="r_phone" property="r_phone" />
+		<result column="r_experience" property="r_experience" />
+		<result column="r_qq" property="r_qq" />
+		<result column="r_weixin" property="r_weixin" />
+		<result column="r_judgement" property="r_judgement" />
+		<result column="r_speciality" property="r_speciality" />
+		<result column="r_personalRoom" property="r_personalRoom" />
+		<result column="r_softwareSkills" property="r_softwareSkills" />
+		<result column="r_expressDelivery" property="r_expressDelivery" />
+		<result column="r_sendtime" property="r_sendtime" />
+		<result column="r_whoRead" property="r_whoRead" />
+		<result column="r_flushTime" property="r_flushTime" />
+		
+		<collection property="jobExperience" ofType="JobExperience">
+			<id column="je_id" property="je_id" />
+			<result column="je_start" property="je_start" />
+			<result column="je_end" property="je_end" />
+			<result column="je_company" property="je_company" />
+			<result column="je_job" property="je_job" />
+			<result column="je_describe" property="je_describe" />
+		</collection>
+		
+		<collection property="educationalExperience" ofType="EducationalExperience">
+			<id column="ed_id" property="ed_id" />
+			<result column="school_name" property="school_name" />
+			<result column="start_time" property="start_time" />
+			<result column="end_time" property="end_time" />
+			<result column="system" property="system" />
+			<result column="major" property="major" />
+			<result column="education" property="education" />
+		</collection>
+		
+		<collection property="softwareskills"
+			ofType="ResumeSoftwareskills">
+			<id column="rs_id" property="rs_id" />
+			<result column="rs_name" property="rs_name" />
+			<result column="rs_proficiency" property="rs_proficiency" />
+		</collection>
+
+		<collection property="projectExperiences" ofType="ProjectExperience">
+			<id column="pe_id" property="pe_id" />
+			<result column="pe_start" property="pe_start" />
+			<result column="pe_end" property="pe_end" />
+			<result column="pe_name" property="pe_name" />
+			<result column="pe_position" property="pe_position" />
+			<result column="pe_describe" property="pe_describe" />
+		</collection>
+
+		<collection property="trainExperiences" ofType="TrainExperience">
+			<id column="te_id" property="te_id" />
+			<result column="te_school" property="te_school" />
+			<result column="te_start" property="te_start" />
+			<result column="te_end" property="te_end" />
+			<result column="te_course" property="te_course" />
+		</collection>
+	</resultMap>
+
+	<update id="flushResume" parameterType="Resume">
+		UPDATE resume SET r_flushTime = #{r_flushTime} WHERE r_id = #{r_id}
+	</update>
+	
+</mapper>
