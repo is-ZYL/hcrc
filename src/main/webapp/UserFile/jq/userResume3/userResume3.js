@@ -323,9 +323,13 @@ function range() {
 	};
 	
 	// !*获取元素上面的class值 以便进行相关操作 *!/
-	var workExprienceEditor = $("input[type='range']").attr("class").split(/\s+/);
-	// 将第二个class名赋值给who 以便进行删除操作
-	who = workExprienceEditor[1];
+	 var className = $("input[type='range']").attr("class");
+	 var workExprienceEditor = undefined;
+	if (className != undefined) {
+		workExprienceEditor =className.split(/\s+/);
+		// 将第二个class名赋值给who 以便进行删除操作
+		who = workExprienceEditor[1];
+	}
 	$(who).RangeSlider({
 		min : 0,
 		max : 100,
